@@ -245,6 +245,7 @@ function showConfirmModal(onConfirm) {
   const confModal = document.createElement('div');
   confModal.className = "modal";
   confModal.id = "fnlConfModal";
+  confModal.style.display = "block";
   confModal.innerHTML = `
     <h2>Confirmationi</h2>
     <h5>Are you sure you want to submit?</h5>
