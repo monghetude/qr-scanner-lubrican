@@ -250,7 +250,7 @@ function showConfirmModal(onConfirm) {
     <h5>Are you sure you want to submit?</h5>
     <button id="fnlsbmt">Yes</button>
     <button id="fnlCncl">No</button>`;
-  document.body.appendChild(confModal);
+  document.getElementById('outerBox').appendChild(confModal);
   document.getElementById('fnlsbmt').onclick = () => {
     confModal.remove();
     onConfirm();
