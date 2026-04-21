@@ -151,7 +151,7 @@ function searchQR(qrValue) {
         ];
         let hasBlank = false;
         fields.forEach(f => {
-          if (!f.value.trim()) {
+          if (!f.value.trim() || f.value.trim() === "") {
             f.style.border = "2px solid red";
             hasBlank = true;
           } else {
