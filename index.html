@@ -36,10 +36,17 @@
     </div>
   </div>
 
+  <!-- Scan Section -->
   <div id="scanSection" style="display:none;">
   <button id="startScanBtn">Start Scanner</button>
+  <button id="uploadQRBtn">Upload QR</button>
   <button id="stopScanBtn" style="display:none; background:#ff9194;">Stop</button>
-  <div id="qr-reader" style="width:300px; margin:15px auto;"></div>
+  <div id="qrReaderContainer" style="position:relative; width: 300px; margin: 0 auto;">
+    <div id="qr-reader" style="width:300px; margin:15px auto;"></div>
+    <button id="flipCamBtn" style="display:none; position:absolute; top:10px; right:10px; background-color:rgba(0,0,0,0.5); color:white; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer;">
+    🔄
+    </button>
+  </div>
   <div id="result"></div>
   </div>
   
@@ -50,7 +57,6 @@
     </textarea>
   <button id="searchManual" style="height: 35px; width: 100px; border-radius: 10px; padding: 3px;">Search</button>
   </div>
-  
   <div id="manualResult"></div>
   </div>
 
