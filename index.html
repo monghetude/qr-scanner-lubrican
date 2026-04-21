@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="https://loveyourself.ph/wp-content/uploads/2020/10/cropped-Favicon-LoveYourself.png">
   <link rel="shortcut icon" href="https://loveyourself.ph/wp-content/uploads/2020/10/cropped-Favicon-LoveYourself.png">
-
   <title>LubriCan! Seed ID Scanner</title>
-
   <link rel="stylesheet" href="style.css">
-
   <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 
+<!-- MAIN BODY -->
 <body>
   
 <div id="outerBox">
@@ -58,6 +56,17 @@
   <button id="searchManual" style="height: 35px; width: 100px; border-radius: 10px; padding: 3px;">Search</button>
   </div>
   <div id="manualResult"></div>
+  </div>
+
+  <div id="clientDetails" style="display:none;">
+    <input type="text" id="uicInput"/>
+    <input type="date" id="dateVisitInput"/>
+    <select id="kapGroupSelect">
+      <option value="" selected disabled hidden>Select KAP Group</option>
+      <option value="MSM">MSM (Men having Sex with other Men)</option>
+      <option value="TGW">TGW (Transgender Women)</option>
+    </select>
+    <input type="text" id="loggedByInput"/>
   </div>
 
   <div id="toast"></div>
