@@ -2,6 +2,11 @@ let qrReader;
 
 const startBtn = document.getElementById("startScanBtn");
 const stopBtn = document.getElementById("stopScanBtn");
+const modeSwitch = document.getElementById("modeSwitch");
+const modeLabel = document.getElementById("modeLabel");
+
+modeSwitch.addEventListener("change", updateMode);
+updateMode(); // set default view on load
 
 startBtn.addEventListener("click", startScanner);
 stopBtn.addEventListener("click", stopScanner);
@@ -116,4 +121,16 @@ function saveScan(payload) {
 .then(data => {
   console.log("Saved:", data);
 });
+}
+
+function updateMode() {
+  if (modeSwitch.checked) {
+    modeLabel.textContent = "Scan Mode";
+    scanSection.style.display = "block";
+    manualSection.style.display = "none";
+  } else {
+    modeLabel.textContent = "Manual Mode";
+    scanSection.style.display = "none";
+    manualSection.style.display = "block";
+  }
 }
