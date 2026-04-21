@@ -79,6 +79,16 @@ body {
   input:checked + .slider:before {
     transform: translateX(24px);
   }
+  .clientFields {
+      height: 35px; 
+      width: 300px;
+      border-radius: 8px;
+      font-family: Arial, sans-serif; border: 2px solid;
+      resize: none;
+      line-height: 30px;
+      padding: 0 10px;
+      box-sizing: border-box; 
+  }
 
   select {
     padding: 8px;
