@@ -258,11 +258,11 @@ function showConfirmModal(onConfirm) {
     <button id="fnlCncl">No</button>`;
   modalBgd.appendChild(confModal);
   document.getElementById('fnlsbmt').onclick = () => {
-    confModal.remove();
+    modalBgd.remove();
     onConfirm();
   }
   
   document.getElementById('fnlCncl').onclick = () => {
-  confModal.remove();
+  modalBgd.remove();
   };
 }
