@@ -111,6 +111,17 @@ function searchQR(qrValue) {
           </tr>
         </table>
       </div>
+      <div id="clientDetails" style="display:none; max-width: 100%">
+      <label>Client UIC</label>
+      <input type="text" class="clientFields" id="uicInput"/>
+      <input type="date" class="clientFields" id="dateVisitInput"/>
+      <select id="kapGroupSelect" class="clientFields">
+        <option value="" selected disabled hidden>Select KAP Group</option>
+        <option value="MSM">MSM (Men having Sex with other Men)</option>
+        <option value="TGW">TGW (Transgender Women)</option>
+      </select>
+      <input type="text" id="loggedByInput" class="clientFields"/>
+      </div>
     `;
     document.getElementById("clientDetails").style.display = "block";
     
