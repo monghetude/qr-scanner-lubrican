@@ -137,7 +137,33 @@ function searchQR(qrValue) {
         const visitValue = document.getElementById('dateVisitInput').value;
         const kapValue = document.getElementById('kapGroupSelect').value;
         const loggerValue = document.getElementById('loggedByInput').value;
-      
+        if (!uicValue || !visitValue || !kapValue || !loggerValue) {
+          showToast("Please complete all required fields.");
+          return;
+        }
+
+        // Highlight blank fields
+        const fields = [
+          document.getElementById('uicInput'),
+          document.getElementById('dateVisitInput'),
+          document.getElementById('kapGroupSelect'),
+          document.getElementById('loggedByInput')
+        ];
+        let hasBlank = false;
+        fields.forEach(f => {
+          if (!f.value.trim()) {
+            f.style.border = "2px solid red";
+            hasBlank = true;
+          } else {
+            f.style.border = "";
+          }
+        });
+        if (hasBlank) {
+          showToast("Please complete all required fields.");
+          return;
+        }
+        
+        // Save initiation
         saveScan({
         seedId : res.seedId,
         name : res.name,
