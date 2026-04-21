@@ -242,6 +242,10 @@ function updateMode() {
 // for confirmation modal
 function showConfirmModal(onConfirm) {
   // Confirm submission
+  const modalBgd = document.createElement('div');
+  modalBgd.className = "modal";
+  modalBgd.style.display = "block";
+  
   const confModal = document.createElement('div');
   confModal.className = "modal-content";
   confModal.id = "fnlConfModal";
@@ -251,7 +255,7 @@ function showConfirmModal(onConfirm) {
     <h5>Are you sure you want to submit?</h5>
     <button id="fnlsbmt">Yes</button>
     <button id="fnlCncl">No</button>`;
-  document.getElementById('outerBox').appendChild(confModal);
+  modalBgd.appendChild(confModal);
   document.getElementById('fnlsbmt').onclick = () => {
     confModal.remove();
     onConfirm();
