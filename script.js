@@ -9,6 +9,7 @@ const uploadBtn = document.getElementById("uploadQRBtn");
 const fileInput = document.getElementById("qr-upload");
 const scanSection = document.getElementById("scanSection");
 const manualSection = document.getElementById("manualSection");
+const clientDetails = document.getElementById("clientDetails");
 
 modeSwitch.addEventListener("change", updateMode);
 updateMode(); // set default view on load
@@ -111,6 +112,9 @@ function searchQR(qrValue) {
         </table>
       </div>
     `;
+    // Field for Client Details
+    document.getElementById("clientDetails").style.display = "block";
+    
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
