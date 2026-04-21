@@ -111,20 +111,22 @@ function searchQR(qrValue) {
           </tr>
         </table>
       </div>
-      <div id="clientDetails" style="display:none; max-width: 100%">
-      <label>Client UIC</label>
+      <div id="clientDetails" style="display:block; max-width: 100%; border-radius: 8px; border: solid 2px #4b0102">
+      <label style="text-align: left; margin-top: 8px;">Client UIC</label>
       <input type="text" class="clientFields" id="uicInput"/>
+      <label style="text-align: left; margin-top: 8px;">Date of Visit</label>
       <input type="date" class="clientFields" id="dateVisitInput"/>
+      <label style="text-align: left; margin-top: 8px;">KAP Group</label>
       <select id="kapGroupSelect" class="clientFields">
         <option value="" selected disabled hidden>Select KAP Group</option>
         <option value="MSM">MSM (Men having Sex with other Men)</option>
         <option value="TGW">TGW (Transgender Women)</option>
       </select>
+      <label style="text-align: left; margin-top: 8px;">Logged By:</label>
       <input type="text" id="loggedByInput" class="clientFields"/>
       </div>
     `;
-    document.getElementById("clientDetails").style.display = "block";
-    
+      
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
