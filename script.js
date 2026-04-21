@@ -243,7 +243,7 @@ function updateMode() {
 function showConfirmModal(onConfirm) {
   // Confirm submission
   const confModal = document.createElement('div');
-  confModal.className = "modal";
+  confModal.className = "modal-content";
   confModal.id = "fnlConfModal";
   confModal.style.display = "block";
   confModal.innerHTML = `
