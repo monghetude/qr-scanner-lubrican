@@ -131,7 +131,7 @@ function searchQR(qrValue) {
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
     document.getElementById('result').appendChild(saveBtn);
-    saveBtn.onclick = () => 
+    saveBtn.onclick = () => {
         // Store input values into variables
         const uicValue = document.getElementById('uicInput').value;
         const visitValue = document.getElementById('dateVisitInput').value;
