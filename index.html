@@ -1,15 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>My Scanner</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="outerBox">
+  <div style="text-align: center; margin-top: 0px;">
+  <img src="https://loveyourself.ph/wp-content/uploads/2025/11/Love-Gala-QR-Cover-2.png" style="border-radius: 12px; max-width: 100%; box-sizing:border-box;">
+  </div>
 
-<h1>QR Scanner</h1>
-<button onclick="alert('Works!')">Test Button</button>
+  <h2 style="color:#B76E79;">LubriCan! Seed ID Scanner</h2>
+  
+  <div id="login-section" style="display: none;">
+    <h3>Checking Access...</h3>
+  </div>
 
-<script src="script.js"></script>
+  <div id="main-section" style="display:none; margin-bottom:15px;">    
+  <div style="display:flex; justify-content:center; align-items:center;">
+  <div style="display:flex; gap:20px; align-items:center; font-family:sans-serif;">
+    <label class="switch">
+      <input type="checkbox" id="modeSwitch" checked>
+      <span class="slider round"></span>
+    </label>
+    <span id="modeLabel">Scan Mode</span>
+  </div>
+  </div>
+  </div>
+
+  <div id="manualSection" style="display:none; align-items:center;">
+  
+  <div style="display: flex; justify-content: center; gap: 7px; align-items: center;">  
+  <textarea id="gIdManual" rows="1" placeholder="LYS-0000" style="height: 35px; width: 300px;border-radius: 8px; font-family: Arial, sans-serif; border: 2px solid; resize: none; line-height: 30px; padding: 0 10px; box-sizing: border-box; "></textarea>
+
+  <button id="searchManual" style="height: 35px; width: 100px; border-radius: 10px; padding: 3px;">Search Seed ID</button>
+  </div>
+  
+  <div id="manualResult"></div>
+  </div>
+
+  <div id="scanSection" style="display:none;">
+    <div>
+    <button id="startScanBtn">Start Scanner</button>
+    <button id="uploadQRBtn">Upload QR</button>
+    <button id="stopScanBtn" style="display:none; background-color: #ff9194">Stop Scanner</button>
+    </div>
+    
+    <input type="file" id="qr-upload" accept="image/*" style="display:none;" />
+
+    <div id="qrReaderContainer" style="position:relative; width: 300px; margin: 0 auto;">
+    <div id="qr-reader" style="width:300px; margin-top:15px; margin: 0 auto;"></div>
+
+    <button id="flipCamBtn" style="display:none; position:absolute; top:10px; right:10px; background-color:rgba(0,0,0,0.5); color:white; border:none; border-radius:50%; width:40px; height:40px; cursor:pointer;">
+    🔄
+    </button>
+    </div>
+    <div id="result"></div> 
+  </div>
+
+  <div id="clientDetails" style="display:none;">
+  <input type="text" id="uicInput"/>
+  <input type="date" id="dateVisitInput"/>
+  <select id="kapGroupSelect">
+    <option value="" selected disabled hidden>Select KAP Group</option>
+    <option value="MSM">MSM (Men having Sex with other Men)</option>
+    <option value="TGW">TGW (Transgender Women)</option>
+  </select>
+  <input type="text" id="loggedByInput"/>
+  </div>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <div id="toast"></div>
+
+  </div>
+
+  <script>
+    // Reusable toast function
+    function showToast(message, duration = 3000) {
+      let toast = document.getElementById("toast");
+      toast.innerText = message;
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, duration);
+    }
+
+  </script>
 </body>
 </html>
