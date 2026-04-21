@@ -142,10 +142,10 @@ function searchQR(qrValue) {
         seedId : res.seedId,
         name : res.name,
         cbo : res.cbo,
-        uicValue,
-        visitValue,
-        kapValue,
-        loggerValue
+        uicValue: uicValue,
+        visitValue: visitValue,
+        kapValue: kapValue,
+        loggerValue: loggerValue
       });
     };
   })
