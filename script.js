@@ -126,7 +126,13 @@ function searchQR(qrValue) {
       <input type="text" id="loggedByInput" class="clientFields"/>
       </div>
     `;
-      
+    // Store input values into variables
+    const uicValue = document.getElementById('uicInput').value;
+    const visitValue = document.getElementById('dateVisitInput').value;
+    const kapValue = document.getElementById('kapGroupSelect').value;
+    const loggerValue = document.getElementById('loggedByInput').value;
+    
+    //create save button
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
@@ -136,6 +142,10 @@ function searchQR(qrValue) {
         seedId : res.seedId,
         name : res.name,
         cbo : res.cbo,
+        uicValue,
+        visitValue,
+        kapValue,
+        loggerValue
       });
     };
   })
@@ -165,7 +175,11 @@ function saveScan(payload) {
     payload: {
       seedId: payload.seedId,
       name: payload.name,
-      cbo: payload.cbo
+      cbo: payload.cbo,
+      uicValue: payload.uicValue,
+      visitValue: payload.visitValue,
+      kapValue: payload.kapValue,
+      loggerValue: payload.loggerValue
     }
   })
 })
