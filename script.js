@@ -103,9 +103,6 @@ function showToast(message, duration = 3000) {
 function saveScan(payload) {
   fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
   method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
   body: JSON.stringify({
     action: "saveScan",
     payload: {
