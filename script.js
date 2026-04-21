@@ -70,6 +70,17 @@ function searchQR(qrValue) {
         </table>
       </div>
     `;
+    const saveBtn = document.createElement('button');
+    saveBtn.innerText = 'Save';
+    saveBtn.id = 'saveBtn';
+    document.getElementById('result').appendChild(saveBtn);
+    saveBtn.onclick = () => {
+        saveScan({
+        seedId : res.seedId,
+        name : res.name,
+        cbo : res.cbo,
+      });
+    };
   })
   .catch(err => {
     console.error(err);
@@ -86,4 +97,26 @@ function showToast(message, duration = 3000) {
   setTimeout(() => {
     toast.classList.remove("show");
   }, duration);
+}
+
+//save scan function
+function saveScan(payload) {
+  fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    action: "saveScan",
+    payload: {
+      seedId: payload.seedId,
+      name: payload.name,
+      cbo: payload.cbo
+    }
+  })
+})
+.then(r => r.json())
+.then(data => {
+  console.log("Saved:", data);
+});
 }
