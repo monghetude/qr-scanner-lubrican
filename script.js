@@ -126,11 +126,19 @@ function searchQR(qrValue) {
       <input type="text" id="loggedByInput" class="clientFields"/>
       </div>
     `;    
-    //create save button
+    // create save button
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
     document.getElementById('result').appendChild(saveBtn);
+
+    // create cancel button
+    const cancelBtn = document.createElement('button');
+    cancelBtn.innerText = 'Cancel';
+    cancelBtn.id = 'saveBtn';
+    document.getElementById('result').appendChild(cancelBtn);
+    
+    // save button on click
     saveBtn.onclick = () => {
         // Store input values into variables
         const uicValue = document.getElementById('uicInput').value;
@@ -170,6 +178,12 @@ function searchQR(qrValue) {
         loggerValue: loggerValue
       });
     };
+
+    // cancel button function
+    document.getElementById('cancelBtn').addEventListener('click', () => {
+      document.getElementById('result').innerHTML = "";
+    }) 
+    
   })
   .catch(err => {
     console.error(err);
