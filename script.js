@@ -1,16 +1,29 @@
 let qrReader;
 
+// Variable Assignments
 const startBtn = document.getElementById("startScanBtn");
 const stopBtn = document.getElementById("stopScanBtn");
 const modeSwitch = document.getElementById("modeSwitch");
 const modeLabel = document.getElementById("modeLabel");
+const uploadBtn = document.getElementById("uploadQRBtn");
+const fileInput = document.getElementById("qr-upload");
+const scanSection = document.getElementById("scanSection");
+const manualSection = document.getElementById("manualSection");
 
 modeSwitch.addEventListener("change", updateMode);
 updateMode(); // set default view on load
 
+// Event Listeners
 startBtn.addEventListener("click", startScanner);
 stopBtn.addEventListener("click", stopScanner);
+uploadBtn.addEventListener("click", () => {
+  fileInput.click();
+});
+fileInput.addEventListener("change", uploadScan);
 
+// TEMPLATE FUNCTIONS -------------------
+
+// QR Cam Scanner Inititate
 function startScanner() {
   qrReader = new Html5Qrcode("qr-reader");
 
@@ -35,6 +48,28 @@ function startScanner() {
   });
 }
 
+// Uploaded QR Scan
+function uploadScan(e) {
+  const file = e.target.files[0];
+  if(!file) return;
+  const fileScanner = new Html5Qrcode("qr-reader");
+
+  fileScanner.scanFile(file, /* showImage= */ false)
+    .then((decodedText) => {
+      document.getElementById("result").innerHTML = "<p>Searching...</p>";
+      searchQR(decodedText);
+    })
+      .catch(err => {
+      console.error(err);
+      showToast("No QR code found in image");
+    })
+    .finally(() => {
+      e.target.value = "";
+    });
+};
+
+
+// Stop Scanner
 function stopScanner() {
   if (qrReader) {
     qrReader.stop()
@@ -45,6 +80,7 @@ function stopScanner() {
   stopBtn.style.display = "none";
 }
 
+// Search QR Value
 function searchQR(qrValue) {
   fetch(
     "https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec?qrValue=" 
