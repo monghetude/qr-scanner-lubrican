@@ -110,11 +110,16 @@ function searchQR(qrValue) {
             <td style="background:#773536; padding:5px;">${res.cbo}</td>
           </tr>
         </table>
+        <input type="text" id="uicInput"/>
+        <input type="date" id="dateVisitInput"/>
+        <select id="kapGroupSelect">
+          <option value="" selected disabled hidden>Select KAP Group</option>
+          <option value="MSM">MSM (Men having Sex with other Men)</option>
+          <option value="TGW">TGW (Transgender Women)</option>
+        </select>
+        <input type="text" id="loggedByInput"/>
       </div>
-    `;
-    // Field for Client Details
-    document.getElementById("clientDetails").style.display = "block";
-    
+    `;    
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
