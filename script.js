@@ -41,22 +41,14 @@ function stopScanner() {
 }
 
 function searchQR(qrValue) {
-  fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      action: "searchQR",
-      qrValue: qrValue
-    })
-  })
+  fetch(
+    "https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec?qrValue=" 
+    + encodeURIComponent(qrValue)
+  )
   .then(res => res.json())
   .then(res => {
-
     if (!res.found) {
-      document.getElementById("result").innerHTML =
-        "<p>No match found</p>";
+      document.getElementById("result").innerHTML = "<p>No match found</p>";
       return;
     }
 
