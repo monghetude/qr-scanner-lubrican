@@ -125,19 +125,19 @@ function searchQR(qrValue) {
       <label style="text-align: left; margin-top: 8px;">Logged By:</label>
       <input type="text" id="loggedByInput" class="clientFields"/>
       </div>
-    `;
-    // Store input values into variables
-    const uicValue = document.getElementById('uicInput').value;
-    const visitValue = document.getElementById('dateVisitInput').value;
-    const kapValue = document.getElementById('kapGroupSelect').value;
-    const loggerValue = document.getElementById('loggedByInput').value;
-    
+    `;    
     //create save button
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
     document.getElementById('result').appendChild(saveBtn);
-    saveBtn.onclick = () => {
+    saveBtn.onclick = () => 
+        // Store input values into variables
+        const uicValue = document.getElementById('uicInput').value;
+        const visitValue = document.getElementById('dateVisitInput').value;
+        const kapValue = document.getElementById('kapGroupSelect').value;
+        const loggerValue = document.getElementById('loggedByInput').value;
+      
         saveScan({
         seedId : res.seedId,
         name : res.name,
