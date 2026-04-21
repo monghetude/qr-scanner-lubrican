@@ -137,10 +137,6 @@ function searchQR(qrValue) {
         const visitValue = document.getElementById('dateVisitInput').value;
         const kapValue = document.getElementById('kapGroupSelect').value;
         const loggerValue = document.getElementById('loggedByInput').value;
-        if (!uicValue || !visitValue || !kapValue || !loggerValue) {
-          showToast("Please complete all required fields.");
-          return;
-        }
 
         // Highlight blank fields
         const fields = [
@@ -151,7 +147,7 @@ function searchQR(qrValue) {
         ];
         let hasBlank = false;
         fields.forEach(f => {
-          if (!f.value.trim() || f.value.trim() === "") {
+          if (!f.value || f.value === "") {
             f.style.border = "2px solid red";
             hasBlank = true;
           } else {
