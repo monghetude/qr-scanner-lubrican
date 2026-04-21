@@ -245,6 +245,7 @@ function showConfirmModal(onConfirm) {
   const modalBgd = document.createElement('div');
   modalBgd.className = "modal";
   modalBgd.style.display = "block";
+  document.body.appendChild(modalBgd);
   
   const confModal = document.createElement('div');
   confModal.className = "modal-content";
