@@ -119,7 +119,9 @@ function searchQR(qrValue) {
         </select>
         <input type="text" id="loggedByInput"/>
       </div>
-    `;    
+    `;
+    document.getElementById("clientDetails").style.display = "block";
+    
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
     saveBtn.id = 'saveBtn';
