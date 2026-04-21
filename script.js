@@ -223,6 +223,7 @@ function saveScan(payload) {
 .then(data => {
   console.log("Saved:", data);
 });
+  document.getElementById('result').innerHTML = "";
 }
 
 function updateMode() {
