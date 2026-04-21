@@ -82,6 +82,7 @@ function searchQR(qrValue) {
   });
 }
 
+
 function showToast(message, duration = 3000) {
   const toast = document.getElementById("toast");
   toast.innerText = message;
