@@ -225,8 +225,6 @@ function saveScan(payload) {
 .then(data => {
   console.log("Saved:", data);
 });
-  document.getElementById('result').innerHTML = "";
-  document.getElementById('fnlConfModal').style.display = "none";
 }
 
 function updateMode() {
