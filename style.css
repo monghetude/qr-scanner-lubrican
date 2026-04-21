@@ -80,8 +80,9 @@ body {
     transform: translateX(24px);
   }
   .clientFields {
+      display: block;
       height: 35px; 
-      width: 300px;
+      width: 100%;
       border-radius: 8px;
       font-family: Arial, sans-serif; border: 2px solid;
       resize: none;
