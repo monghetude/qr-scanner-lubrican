@@ -1,100 +1,93 @@
 let qrReader;
-let currentCamera = "environment"
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById('main-section').style.display = 'block';
-  document.getElementById('scanSection').style.display = 'block';
-  document.getElementById('manualSection').style.display = 'none';
-  
-  const modeSwitch = document.getElementById("modeSwitch");
-  const modeLabel = document.getElementById("modeLabel");
+const startBtn = document.getElementById("startScanBtn");
+const stopBtn = document.getElementById("stopScanBtn");
 
-    function updateMode() {
-      if (modeSwitch.checked) {
-        modeLabel.textContent = "Scan Mode";
-        scanSection.style.display = "block";
-        manualSection.style.display = "none";
-      } else {
-        modeLabel.textContent = "Manual Mode";
-        scanSection.style.display = "none";
-        manualSection.style.display = "block";
-      }
+startBtn.addEventListener("click", startScanner);
+stopBtn.addEventListener("click", stopScanner);
+
+function startScanner() {
+  qrReader = new Html5Qrcode("qr-reader");
+
+  qrReader.start(
+    { facingMode: "environment" },
+    { fps: 10, qrbox: 250 },
+
+    (decodedText) => {
+      stopScanner();
+
+      document.getElementById("result").innerHTML = "<p>Searching...</p>";
+
+      searchQR(decodedText);
     }
-
-    modeSwitch.addEventListener("change", updateMode);
-    updateMode(); // set default view on load
-
-    const gIdManual = document.getElementById('gIdManual');
-    const searchManual = document.getElementById('searchManual');
- 
-});
-
-
-function disableModeToggle() {
-  const modeSwitch = document.getElementById("modeSwitch");
-  modeSwitch.disabled = true;
-  modeSwitch.parentElement.style.opacity = "0.5";
-  document.getElementById("modeLabel").style.opacity = "0.5";
-}
-
-function enableModeToggle() {
-  const modeSwitch = document.getElementById("modeSwitch");
-  modeSwitch.disabled = false;
-  modeSwitch.parentElement.style.opacity = "1";
-  document.getElementById("modeLabel").style.opacity = "1";
+  )
+  .then(() => {
+    stopBtn.style.display = "inline-block";
+  })
+  .catch(err => {
+    showToast("Camera Error: " + err);
+    console.error(err);
+  });
 }
 
 function stopScanner() {
   if (qrReader) {
     qrReader.stop()
-    .then(() => {qrReader.clear()})
-    .catch(err => console.error("Failed to stop scanner", err));
-    enableModeToggle();
+      .then(() => qrReader.clear())
+      .catch(err => console.error(err));
   }
+
+  stopBtn.style.display = "none";
 }
 
-const stopBtn = document.getElementById("stopScanBtn");
-const flipBtn = document.getElementById("flipCamBtn");
+function searchQR(qrValue) {
+  fetch("YOUR_APPS_SCRIPT_URL", {
+    method: "POST",
+    body: JSON.stringify({
+      action: "searchQR",
+      qrValue: qrValue
+    })
+  })
+  .then(res => res.json())
+  .then(res => {
 
-  flipBtn.addEventListener("click", function() {
-  currentCamera = currentCamera === "environment" ? "user" : "environment";
-  stopScanner();
-  setTimeout(startScanner, 500);;
-});
-
-stopBtn.addEventListener("click", function(){
-  stopScanner();
-  startScanBtn.disabled = false;
-  startScanBtn.innerText = "Start Scanner";
-  stopBtn.style.display = "none";
-  flipBtn.style.display = "none";
-});
-
-document.getElementById('startScanBtn').addEventListener('click', function() {
-  let startScanBtn = document.getElementById('startScanBtn');
-  startScanBtn.innerText = "loading...";   // show "Saving..."
-  startScanBtn.disabled = true;           // prevent double-clicks
-  disableModeToggle();
-
-  startScanner();
-  stopBtn.style.display = "inline-block";
-  flipBtn.style.display = "inline-block";
-});
-
-function startScanner() {
-  qrReader = new Html5Qrcode('qr-reader');
-  qrReader.start(
-    { facingMode: currentCamera },
-    { fps: 10, qrbox: 250 },
-    (decodedText) => {
-      qrReader.stop();
-      stopBtn.style.display = "none";
-      flipBtn.style.display = "none";
-      document.getElementById('result').innerHTML = "<p>Searching...</p>";
+    if (!res.found) {
+      document.getElementById("result").innerHTML =
+        "<p>No match found</p>";
+      return;
     }
-  ).then(() => console.log("Scanner started"))
+
+    document.getElementById("result").innerHTML = `
+      <div style="border:2px solid #350002; border-radius:10px; overflow:hidden;">
+        <table style="width:100%; border-collapse:collapse;">
+          <tr>
+            <td style="background:#350002; padding:5px;">Seed ID</td>
+            <td style="background:#773536; padding:5px;">${res.seedId}</td>
+          </tr>
+          <tr>
+            <td style="background:#350002; padding:5px;">Name</td>
+            <td style="background:#773536; padding:5px;">${res.name}</td>
+          </tr>
+          <tr>
+            <td style="background:#350002; padding:5px;">CBO</td>
+            <td style="background:#773536; padding:5px;">${res.cbo}</td>
+          </tr>
+        </table>
+      </div>
+    `;
+  })
   .catch(err => {
     console.error(err);
-    showToast("Camera error: " + err);
+    showToast("Search failed");
   });
+}
+
+function showToast(message, duration = 3000) {
+  const toast = document.getElementById("toast");
+  toast.innerText = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, duration);
 }
