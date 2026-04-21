@@ -135,7 +135,7 @@ function searchQR(qrValue) {
     // create cancel button
     const cancelBtn = document.createElement('button');
     cancelBtn.innerText = 'Cancel';
-    cancelBtn.id = 'saveBtn';
+    cancelBtn.id = 'cancelBtn';
     document.getElementById('result').appendChild(cancelBtn);
     
     // save button on click
