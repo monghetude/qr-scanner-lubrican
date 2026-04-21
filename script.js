@@ -168,15 +168,17 @@ function searchQR(qrValue) {
         }
         
         // Save initiation
-        saveScan({
-        seedId : res.seedId,
-        name : res.name,
-        cbo : res.cbo,
-        uicValue: uicValue,
-        visitValue: visitValue,
-        kapValue: kapValue,
-        loggerValue: loggerValue
-      });
+        showConfirmModal(() => {
+          saveScan({
+            seedId : res.seedId,
+            name : res.name,
+            cbo : res.cbo,
+            uicValue: uicValue,
+            visitValue: visitValue,
+            kapValue: kapValue,
+            loggerValue: loggerValue
+          });
+        });
     };
 
     // cancel button function
@@ -224,6 +226,7 @@ function saveScan(payload) {
   console.log("Saved:", data);
 });
   document.getElementById('result').innerHTML = "";
+  document.getElementById('fnlConfModal').style.display = "none";
 }
 
 function updateMode() {
@@ -236,4 +239,26 @@ function updateMode() {
     scanSection.style.display = "none";
     manualSection.style.display = "block";
   }
+}
+
+// for confirmation modal
+function showConfirmModal(onConfirm) {
+  // Confirm submission
+  const confModal = document.createElement('div');
+  confModal.className = "modal";
+  confModal.id = "fnlConfModal";
+  confModal.innerHTML = `
+    <h2>Confirmationi</h2>
+    <h5>Are you sure you want to submit?</h5>
+    <button id="fnlsbmt">Yes</button>
+    <button id="fnlCncl">No</button>`;
+  document.body.appendChild(confModal);
+  document.getElementById('fnlsbmt').onclick = () => {
+    confModal.remove();
+    onConfirm();
+  }
+  
+  document.getElementById('fnlCncl').onclick = () => {
+  confModal.remove();
+  };
 }
