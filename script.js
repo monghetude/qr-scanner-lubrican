@@ -95,11 +95,11 @@ function searchQR(qrValue) {
     }
 
     document.getElementById("result").innerHTML = `
-      <div style="border:2px solid #350002; border-radius:10px; overflow:hidden;">
+      <div style="border:2px solid #256AAE; border-radius:10px; overflow:hidden;">
         <table style="width:100%; border-collapse:collapse;">
           <tr>
-            <td style="background:#350002; padding:5px;">Seed ID</td>
-            <td style="background:#773536; padding:5px;">${res.seedId}</td>
+            <td style="background:#D5EAFF; padding:5px;">Seed ID</td>
+            <td style="background:#D5EAFF; padding:5px;">${res.seedId}</td>
           </tr>
           <tr>
             <td style="background:#350002; padding:5px;">Name</td>
