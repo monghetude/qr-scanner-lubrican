@@ -178,7 +178,18 @@ function searchQR(qrValue) {
       <label class="clientFieldLabel">Logged By:</label>
       <input type="text" id="loggedByInput" class="clientFields"/>
       </div>
-    `;    
+    `;
+    // UIC formatting
+    const uicInputSearch = document.getElementById('uicInput');
+    uicInputSearch.addEventListener("input", function () {
+      let uicForm = this.value.replace(/[^a-zA-Z0-9]/g, '');
+      let uicLetters = uicForm.substring(0, 4).replace(/[^a-zA-Z]/g, '').toUpperCase();
+      let uicNumbers = uicForm.substring(4).replace(/[^0-9]/g, '').substring(0, 10);
+      let formatted = uicLetters + uicNumbers;
+      this.value = formatted.substring(0, 14)
+    })
+
+    
     // create save button
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
@@ -333,6 +344,17 @@ function searchById() {
       <input type="text" id="loggedByInputManual" class="clientFields"/>
       </div>    
     `;
+
+    // UIC formatting
+    const uicInputManual = document.getElementById('uicInputManual');
+    uicInputManual.addEventListener("input", function () {
+      let uicForm = this.value.replace(/[^a-zA-Z0-9]/g, '');
+      let uicLetters = uicForm.substring(0, 4).replace(/[^a-zA-Z]/g, '').toUpperCase();
+      let uicNumbers = uicForm.substring(4).replace(/[^0-9]/g, '').substring(0, 10);
+      let formatted = uicLetters + uicNumbers;
+      this.value = formatted.substring(0, 14)
+    })
+    
     // create save button
     const saveBtn = document.createElement('button');
     saveBtn.innerText = 'Save';
