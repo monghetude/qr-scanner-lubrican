@@ -161,6 +161,7 @@ function searchQR(qrValue) {
         </table>
       </div>
       <div id="clientDetails">
+      <h4>Client Details</h4>
       <label class="clientFieldLabel">Client UIC</label>
       <input type="text" class="clientFields" id="uicInput"/>
       <label class="clientFieldLabel">Date of Visit</label>
