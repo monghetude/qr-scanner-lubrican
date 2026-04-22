@@ -91,6 +91,17 @@ body {
       box-sizing: border-box; 
   }
 
+  .resultsDiv {
+      border:2px solid #350002;
+      border-radius:10px;
+      overflow:hidden;
+  }
+
+  .resultsTable {
+      width:100%;
+      border-collapse:collapse;
+  }
+
   select {
     padding: 8px;
     margin-top: 5px;
