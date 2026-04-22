@@ -276,10 +276,10 @@ function searchById() {
 
         // Highlight blank fields
         const fields = [
-          document.getElementById('uicInput'),
-          document.getElementById('dateVisitInput'),
-          document.getElementById('kapGroupSelect'),
-          document.getElementById('loggedByInput')
+          document.getElementById('uicInputManual'),
+          document.getElementById('dateVisitInputManual'),
+          document.getElementById('kapGroupSelectManual'),
+          document.getElementById('loggedByInputManual')
         ];
         let hasBlank = false;
         fields.forEach(f => {
