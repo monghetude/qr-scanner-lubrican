@@ -39,7 +39,7 @@ function startScanner() {
     (decodedText) => {
       stopScanner();
 
-      document.getElementById("result").innerHTML = "<p>Searching...</p>";
+      document.getElementById("result").innerHTML = "<p style="color:#0C1134; font-weight:bold;">Searching...</p>";
 
       searchQR(decodedText);
     }
