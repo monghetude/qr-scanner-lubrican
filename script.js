@@ -286,6 +286,10 @@ function searchById() {
   .then(res => {
     if (!res.found) {
       document.getElementById("manualResult").innerHTML = "<p>No match found</p>";
+      document.getElementById("gIdManual").disabled = false;
+      document.getElementById("gIdManual").style.opacity = "100%";
+      document.getElementById("searchManual").disabled = false;
+      document.getElementById("searchManual").style.opacity = "100%";
       return;
     }
     
