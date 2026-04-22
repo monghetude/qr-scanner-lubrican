@@ -147,16 +147,16 @@ function searchQR(qrValue) {
       <div class="resultsDiv">
         <table class="resultsTable">
           <tr>
-            <td style="background:#350002; padding:5px;">Seed ID</td>
-            <td style="background:#773536; padding:5px;">${res.seedId}</td>
+            <td>Seed ID</td>
+            <td>${res.seedId}</td>
           </tr>
           <tr>
-            <td style="background:#350002; padding:5px;">Name</td>
-            <td style="background:#773536; padding:5px;">${res.name}</td>
+            <td>Name</td>
+            <td>${res.name}</td>
           </tr>
           <tr>
-            <td style="background:#350002; padding:5px;">CBO</td>
-            <td style="background:#773536; padding:5px;">${res.cbo}</td>
+            <td>CBO</td>
+            <td>${res.cbo}</td>
           </tr>
         </table>
       </div>
@@ -262,6 +262,10 @@ function searchById() {
 
   if (!idValue) {
     showToast("Please enter a Seed ID.");
+    document.getElementById("gIdManual").disabled = false;
+    document.getElementById("gIdManual").style.opacity = "100%";
+    document.getElementById("searchManual").disabled = false;
+    document.getElementById("searchManual").style.opacity = "100%";
     return;
   }
 
@@ -285,16 +289,16 @@ function searchById() {
       <div class="resultsDiv">
         <table class="resultsTable">
           <tr>
-            <td style="background:#350002; padding:5px;">Seed ID</td>
-            <td style="background:#773536; padding:5px;">${res.seedId}</td>
+            <td>Seed ID</td>
+            <td>${res.seedId}</td>
           </tr>
           <tr>
-            <td style="background:#350002; padding:5px;">Name</td>
-            <td style="background:#773536; padding:5px;">${res.name}</td>
+            <td>Name</td>
+            <td>${res.name}</td>
           </tr>
           <tr>
-            <td style="background:#350002; padding:5px;">CBO</td>
-            <td style="background:#773536; padding:5px;">${res.cbo}</td>
+            <td>CBO</td>
+            <td>${res.cbo}</td>
           </tr>
         </table>
       </div>
