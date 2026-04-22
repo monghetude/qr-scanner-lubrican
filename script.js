@@ -10,6 +10,8 @@ const fileInput = document.getElementById("qr-upload");
 const scanSection = document.getElementById("scanSection");
 const manualSection = document.getElementById("manualSection");
 const clientDetails = document.getElementById("clientDetails");
+const gIdManual = document.getElementById("gIdManual");
+const searchManual = document.getElementById("searchManual");
 
 modeSwitch.addEventListener("change", updateMode);
 updateMode(); // set default view on load
@@ -21,6 +23,8 @@ uploadBtn.addEventListener("click", () => {
   fileInput.click();
 });
 fileInput.addEventListener("change", uploadScan);
+searchManual.addEventListener("click", searchById);
+
 
 // TEMPLATE FUNCTIONS -------------------
 
@@ -95,23 +99,23 @@ function searchQR(qrValue) {
     }
 
     document.getElementById("result").innerHTML = `
-      <div style="border:2px solid #0C1134; border-radius:10px; overflow:hidden;">
+      <div style="border:2px solid #350002; border-radius:10px; overflow:hidden;">
         <table style="width:100%; border-collapse:collapse;">
           <tr>
-            <td style="background:#2263A4; padding:5px; color:#D5EAFF;">Seed ID</td>
-            <td style="background:#4C9EFF; padding:5px; color:#D5EAFF;">${res.seedId}</td>
+            <td style="background:#350002; padding:5px;">Seed ID</td>
+            <td style="background:#773536; padding:5px;">${res.seedId}</td>
           </tr>
           <tr>
-            <td style="background:#2263A4; padding:5px; color:#D5EAFF;">Name</td>
-            <td style="background:#4C9EFF; padding:5px; color:#D5EAFF;">${res.name}</td>
+            <td style="background:#350002; padding:5px;">Name</td>
+            <td style="background:#773536; padding:5px;">${res.name}</td>
           </tr>
           <tr>
-            <td style="background:#2263A4; padding:5px; color:#D5EAFF;">CBO</td>
-            <td style="background:#4C9EFF; padding:5px; color:#D5EAFF;">${res.cbo}</td>
+            <td style="background:#350002; padding:5px;">CBO</td>
+            <td style="background:#773536; padding:5px;">${res.cbo}</td>
           </tr>
         </table>
       </div>
-      <div id="clientDetails" style="display:block; max-width: 100%; border-radius: 8px; border: solid 2px #0C1134; color:#0C1134;">
+      <div id="clientDetails" style="display:block; max-width: 100%; border-radius: 8px; border: solid 2px #4b0102">
       <label style="text-align: left; margin-top: 8px;">Client UIC</label>
       <input type="text" class="clientFields" id="uicInput"/>
       <label style="text-align: left; margin-top: 8px;">Date of Visit</label>
@@ -193,7 +197,131 @@ function searchQR(qrValue) {
   });
 }
 
+// Manual search by ID input
+function searchById() {
+  const idValue = document.getElementById("gIdManual").value;
 
+  if (!idValue) {
+    showToast("Please enter a Seed ID.");
+    return;
+  }
+
+  fetch(
+   "https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      action: "searchById",
+      idValue: idValue
+    })
+  })
+  .then(res => res.json())
+  .then(res => {
+    if (!res.found) {
+      document.getElementById("manualResult").innerHTML = "<p>No match found</p>";
+      return;
+    }
+    
+    // render results from manual search if match is found 
+    document.getElementById("manualResult").innerHTML = `
+      <div style="border:2px solid #350002; border-radius:10px; overflow:hidden;">
+        <table style="width:100%; border-collapse:collapse;">
+          <tr>
+            <td style="background:#350002; padding:5px;">Seed ID</td>
+            <td style="background:#773536; padding:5px;">${res.seedId}</td>
+          </tr>
+          <tr>
+            <td style="background:#350002; padding:5px;">Name</td>
+            <td style="background:#773536; padding:5px;">${res.name}</td>
+          </tr>
+          <tr>
+            <td style="background:#350002; padding:5px;">CBO</td>
+            <td style="background:#773536; padding:5px;">${res.cbo}</td>
+          </tr>
+        </table>
+      </div>
+      <div id="clientDetailsManual" style="display:block; max-width: 100%; border-radius: 8px; border: solid 2px #4b0102">
+      <label style="text-align: left; margin-top: 8px;">Client UIC</label>
+      <input type="text" class="clientFields" id="uicInputManual"/>
+      <label style="text-align: left; margin-top: 8px;">Date of Visit</label>
+      <input type="date" class="clientFields" id="dateVisitInputManual"/>
+      <label style="text-align: left; margin-top: 8px;">KAP Group</label>
+      <select id="kapGroupSelectManual" class="clientFields">
+        <option value="" selected disabled hidden>Select KAP Group</option>
+        <option value="MSM">MSM (Men having Sex with other Men)</option>
+        <option value="TGW">TGW (Transgender Women)</option>
+      </select>
+      <label style="text-align: left; margin-top: 8px;">Logged By:</label>
+      <input type="text" id="loggedByInputManual" class="clientFields"/>
+      </div>    
+    `;
+    // create save button
+    const saveBtn = document.createElement('button');
+    saveBtn.innerText = 'Save';
+    saveBtn.id = 'saveBtn';
+    document.getElementById('manualResult').appendChild(saveBtn);
+
+    // create cancel button
+    const cancelBtn = document.createElement('button');
+    cancelBtn.innerText = 'Cancel';
+    cancelBtn.id = 'cancelBtn';
+    document.getElementById('manualResult').appendChild(cancelBtn);
+    
+    // save button on click
+    saveBtn.onclick = () => {
+        // Store input values into variables
+        const uicValue = document.getElementById('uicInput').value;
+        const visitValue = document.getElementById('dateVisitInput').value;
+        const kapValue = document.getElementById('kapGroupSelect').value;
+        const loggerValue = document.getElementById('loggedByInput').value;
+
+        // Highlight blank fields
+        const fields = [
+          document.getElementById('uicInput'),
+          document.getElementById('dateVisitInput'),
+          document.getElementById('kapGroupSelect'),
+          document.getElementById('loggedByInput')
+        ];
+        let hasBlank = false;
+        fields.forEach(f => {
+          if (!f.value || f.value === "") {
+            f.style.border = "2px solid red";
+            hasBlank = true;
+          } else {
+            f.style.border = "";
+          }
+        });
+        if (hasBlank) {
+          showToast("Please complete all required fields.");
+          return;
+        }
+        
+        // Save initiation
+        showConfirmModal(() => {
+          saveScan({
+            seedId : res.seedId,
+            name : res.name,
+            cbo : res.cbo,
+            uicValue: uicValue,
+            visitValue: visitValue,
+            kapValue: kapValue,
+            loggerValue: loggerValue
+          });
+        });
+    };
+
+    // cancel button function
+    document.getElementById('cancelBtn').addEventListener('click', () => {
+      document.getElementById('manualResult').innerHTML = "";
+    }) 
+    
+  })
+  .catch(err => {
+    console.error(err);
+    showToast("Search failed");
+  });
+};
+
+// toast function
 function showToast(message, duration = 3000) {
   const toast = document.getElementById("toast");
   toast.innerText = message;
@@ -227,6 +355,7 @@ function saveScan(payload) {
 });
 }
 
+// Update mode function
 function updateMode() {
   if (modeSwitch.checked) {
     modeLabel.textContent = "Scan Mode";
