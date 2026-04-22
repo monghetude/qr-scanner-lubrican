@@ -111,7 +111,7 @@ function searchQR(qrValue) {
           </tr>
         </table>
       </div>
-      <div id="clientDetails" style="display:block; max-width: 100%; border-radius: 8px; border: solid 2px #4b0102">
+      <div id="clientDetails" style="display:block; max-width: 100%; border-radius: 8px; border: solid 2px #0C1134; color:#256AAE;">
       <label style="text-align: left; margin-top: 8px;">Client UIC</label>
       <input type="text" class="clientFields" id="uicInput"/>
       <label style="text-align: left; margin-top: 8px;">Date of Visit</label>
