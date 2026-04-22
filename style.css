@@ -187,13 +187,15 @@ body {
     display:block;
     max-width: 100%;
     border-radius: 8px;
-    border: solid 2px #4b0102
+    border: solid 2px #4b0102;
+    padding: 3px;
 }
 
 #clientDetailsManual {
     display:block;
     max-width: 100%;
     border-radius: 8px;
-    border: solid 2px #4b0102
+    border: solid 2px #4b0102;
+    padding: 3px;
 }
 
