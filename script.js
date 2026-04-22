@@ -147,6 +147,9 @@ function searchQR(qrValue) {
       <div class="resultsDiv">
         <table class="resultsTable">
           <tr>
+            <td colspan="2" style="font-weight: bold;">Seed Details</td>
+          </tr>
+          <tr>
             <td>Seed ID</td>
             <td>${res.seedId}</td>
           </tr>
@@ -160,7 +163,7 @@ function searchQR(qrValue) {
           </tr>
         </table>
       </div>
-      <h4>Client Details</h4>
+      <h4 style="margin-bottom: 3px;">Client Details</h4>
       <div id="clientDetails">
       <label class="clientFieldLabel">Client UIC</label>
       <input type="text" class="clientFields" id="uicInput"/>
@@ -298,6 +301,9 @@ function searchById() {
       <div class="resultsDiv">
         <table class="resultsTable">
           <tr>
+            <td colspan="2" style="font-weight: bold;">Seed Details</td>
+          </tr>
+          <tr>
             <td>Seed ID</td>
             <td>${res.seedId}</td>
           </tr>
@@ -311,7 +317,7 @@ function searchById() {
           </tr>
         </table>
       </div>
-      <h4>Client Details</h4>
+      <h4 style="margin-bottom: 3px;">Client Details</h4>
       <div id="clientDetailsManual">
       <label class="clientFieldLabel">Client UIC</label>
       <input type="text" class="clientFields" id="uicInputManual"/>
