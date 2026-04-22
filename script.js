@@ -13,10 +13,11 @@ const clientDetails = document.getElementById("clientDetails");
 const gIdManual = document.getElementById("gIdManual");
 const searchManual = document.getElementById("searchManual");
 
+// EVENT LISTENERS -------------------
+
 modeSwitch.addEventListener("change", updateMode);
 updateMode(); // set default view on load
 
-// Event Listeners
 startBtn.addEventListener("click", startScanner);
 stopBtn.addEventListener("click", stopScanner);
 uploadBtn.addEventListener("click", () => {
@@ -24,6 +25,39 @@ uploadBtn.addEventListener("click", () => {
 });
 fileInput.addEventListener("change", uploadScan);
 searchManual.addEventListener("click", searchById);
+
+  // Text auto-format for seed ID
+  gIdManual.addEventListener('input', function () {
+    // Get current value and remove everything except letters/numbers
+    let value = this.value.replace(/[^a-zA-Z0-9]/g, '');
+
+    // First 3 characters = letters only
+    let letters = value.substring(0, 3).replace(/[^a-zA-Z]/g, '').toUpperCase();
+
+    // Remaining characters = numbers only
+    let numbers = value.substring(3).replace(/[^0-9]/g, '').substring(0, 4);
+
+    // Build final format
+    let formatted = letters;
+
+    if (letters.length === 3 && numbers.length > 0) {
+      formatted += '-';
+    }
+
+    formatted += numbers;
+
+    // Limit total length to 8 (ABC-0000)
+    this.value = formatted.substring(0, 8);
+  });
+
+  // Enter keypress
+  gIdManual.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault(); // prevents form submit/reload if inside a form
+      searchById();
+    }
+  });
+
 
 
 // TEMPLATE FUNCTIONS -------------------
@@ -39,7 +73,7 @@ function startScanner() {
     (decodedText) => {
       stopScanner();
 
-      document.getElementById("result").innerHTML = "<p style="color:#0C1134; font-weight:bold;">Searching...</p>";
+      document.getElementById("result").innerHTML = "<p>Searching...</p>";
 
       searchQR(decodedText);
     }
@@ -61,7 +95,7 @@ function uploadScan(e) {
 
   fileScanner.scanFile(file, /* showImage= */ false)
     .then((decodedText) => {
-      document.getElementById("result").innerHTML = "<p style="color:#0C1134; font-weight:bold;">Searching...</p>";
+      document.getElementById("result").innerHTML = "<p>Searching...</p>";
       searchQR(decodedText);
     })
       .catch(err => {
@@ -94,7 +128,7 @@ function searchQR(qrValue) {
   .then(res => res.json())
   .then(res => {
     if (!res.found) {
-      document.getElementById("result").innerHTML = "<p style="color:#0C1134; font-weight:bold;">No Match Found</p>;
+      document.getElementById("result").innerHTML = "<p>No match found</p>";
       return;
     }
 
