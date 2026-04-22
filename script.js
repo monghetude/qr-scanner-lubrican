@@ -160,8 +160,8 @@ function searchQR(qrValue) {
           </tr>
         </table>
       </div>
-      <div id="clientDetails">
       <h4>Client Details</h4>
+      <div id="clientDetails">
       <label class="clientFieldLabel">Client UIC</label>
       <input type="text" class="clientFields" id="uicInput"/>
       <label class="clientFieldLabel">Date of Visit</label>
@@ -307,6 +307,7 @@ function searchById() {
           </tr>
         </table>
       </div>
+      <h4>Client Details</h4>
       <div id="clientDetailsManual">
       <label class="clientFieldLabel">Client UIC</label>
       <input type="text" class="clientFields" id="uicInputManual"/>
