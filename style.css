@@ -110,7 +110,9 @@ body {
     margin-top: 20px;
     color: #0C1134;
   }
-
+ #manualResult {
+    color: #0C1134;
+ }
   #toast {
   visibility: hidden;
   min-width: 250px;
