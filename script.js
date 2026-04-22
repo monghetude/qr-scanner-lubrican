@@ -253,6 +253,11 @@ function searchQR(qrValue) {
 
 // Manual search by ID input
 function searchById() {
+  document.getElementById("gIdManual").disabled = true;
+  document.getElementById("gIdManual").style.opacity = "50%";
+  document.getElementById("searchManual").disabled = true;
+  document.getElementById("searchManual").style.opacity = "50%";
+  
   const idValue = document.getElementById("gIdManual").value;
 
   if (!idValue) {
@@ -370,6 +375,10 @@ function searchById() {
     document.getElementById("startScanBtn").style.opacity = "100%";
     document.getElementById("uploadQRBtn").disabled = false;
     document.getElementById("uploadQRBtn").style.opacity = "100%";
+    document.getElementById("gIdManual").disabled = false;
+    document.getElementById("gIdManual").style.opacity = "100%";
+    document.getElementById("searchManual").disabled = false;
+    document.getElementById("searchManual").style.opacity = "100%";
     }) 
     
   })
@@ -419,10 +428,14 @@ document.getElementById("startScanBtn").disabled = false;
 document.getElementById("startScanBtn").style.opacity = "100%";
 document.getElementById("uploadQRBtn").disabled = false;
 document.getElementById("uploadQRBtn").style.opacity = "100%";
-document.getElementById("saveBtn").disabled = true;
-document.getElementById("saveBtn").style.opacity = "50%";
-document.getElementById("cancelBtn").disabled = true;
-document.getElementById("cancelBtn").style.opacity = "50%";
+document.getElementById("saveBtn").disabled = false;
+document.getElementById("saveBtn").style.opacity = "100%";
+document.getElementById("cancelBtn").disabled = false;
+document.getElementById("cancelBtn").style.opacity = "100%";
+document.getElementById("gIdManual").disabled = false;
+document.getElementById("gIdManual").style.opacity = "100%";
+document.getElementById("searchManual").disabled = false;
+document.getElementById("searchManual").style.opacity = "100%";
 }
 
 // Update mode function
@@ -430,6 +443,20 @@ function updateMode() {
 
   document.getElementById("result").innerHTML = "";
   document.getElementById("manualResult").innerHTML = "";
+  document.getElementById("result").innerHTML = "";
+  document.getElementById("manualResult").innerHTML = "";
+  document.getElementById("startScanBtn").disabled = false;
+  document.getElementById("startScanBtn").style.opacity = "100%";
+  document.getElementById("uploadQRBtn").disabled = false;
+  document.getElementById("uploadQRBtn").style.opacity = "100%";
+  document.getElementById("saveBtn").disabled = false;
+  document.getElementById("saveBtn").style.opacity = "100%";
+  document.getElementById("cancelBtn").disabled = false;
+  document.getElementById("cancelBtn").style.opacity = "100%";
+  document.getElementById("gIdManual").disabled = false;
+  document.getElementById("gIdManual").style.opacity = "100%";
+  document.getElementById("searchManual").disabled = false;
+  document.getElementById("searchManual").style.opacity = "100%";
   
   if (modeSwitch.checked) {
     modeLabel.textContent = "Scan Mode";
