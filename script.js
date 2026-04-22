@@ -64,6 +64,9 @@ searchManual.addEventListener("click", searchById);
 
 // QR Cam Scanner Inititate
 function startScanner() {
+  document.getElementById("startScanBtn").disabled = true;
+  document.getElementById("startScanBtn").style.opacity = "50%";
+  
   qrReader = new Html5Qrcode("qr-reader");
 
   qrReader.start(
@@ -114,6 +117,8 @@ function stopScanner() {
     qrReader.stop()
       .then(() => qrReader.clear())
       .catch(err => console.error(err));
+  document.getElementById("startScanBtn").disabled = false;
+  document.getElementById("startScanBtn").style.opacity = "100%";
   }
 
   stopBtn.style.display = "none";
@@ -121,6 +126,11 @@ function stopScanner() {
 
 // Search QR Value
 function searchQR(qrValue) {
+  document.getElementById("startScanBtn").disabled = true;
+  document.getElementById("startScanBtn").style.opacity = "50%";
+  document.getElementById("uploadBtn").disabled = true;
+  document.getElementById("uploadBtn").style.opacity = "50%";
+
   fetch(
     "https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec?qrValue=" 
     + encodeURIComponent(qrValue)
@@ -178,6 +188,11 @@ function searchQR(qrValue) {
     
     // save button on click
     saveBtn.onclick = () => {
+        document.getElementById("saveBtn").disabled = true;
+        document.getElementById("saveBtn").style.opacity = "50%";
+        document.getElementById("cancelBtn").disabled = true;
+        document.getElementById("cancelBtn").style.opacity = "50%";
+
         // Store input values into variables
         const uicValue = document.getElementById('uicInput').value;
         const visitValue = document.getElementById('dateVisitInput').value;
@@ -221,7 +236,11 @@ function searchQR(qrValue) {
 
     // cancel button function
     document.getElementById('cancelBtn').addEventListener('click', () => {
-      document.getElementById('result').innerHTML = "";
+    document.getElementById('result').innerHTML = "";
+    document.getElementById("startScanBtn").disabled = false;
+    document.getElementById("startScanBtn").style.opacity = "100%";
+    document.getElementById("uploadBtn").disabled = false;
+    document.getElementById("uploadBtn").style.opacity = "100%";
     }) 
     
   })
@@ -345,7 +364,11 @@ function searchById() {
 
     // cancel button function
     document.getElementById('cancelBtn').addEventListener('click', () => {
-      document.getElementById('manualResult').innerHTML = "";
+    document.getElementById('manualResult').innerHTML = "";
+    document.getElementById("startScanBtn").disabled = false;
+    document.getElementById("startScanBtn").style.opacity = "100%";
+    document.getElementById("uploadBtn").disabled = false;
+    document.getElementById("uploadBtn").style.opacity = "100%";
     }) 
     
   })
@@ -387,10 +410,26 @@ function saveScan(payload) {
 .then(data => {
   console.log("Saved:", data);
 });
+
+// clear results contents after successful save and re-enable buttons
+document.getElementById("result").innerHTML = "";
+document.getElementById("manualResult").innerHTML = "";
+document.getElementById("startScanBtn").disabled = false;
+document.getElementById("startScanBtn").style.opacity = "100%";
+document.getElementById("uploadBtn").disabled = false;
+document.getElementById("uploadBtn").style.opacity = "100%";
+document.getElementById("saveBtn").disabled = true;
+document.getElementById("saveBtn").style.opacity = "50%";
+document.getElementById("cancelBtn").disabled = true;
+document.getElementById("cancelBtn").style.opacity = "50%";
 }
 
 // Update mode function
 function updateMode() {
+
+  document.getElementById("result").innerHTML = "";
+  document.getElementById("manualResult").innerHTML = "";
+  
   if (modeSwitch.checked) {
     modeLabel.textContent = "Scan Mode";
     scanSection.style.display = "block";
@@ -427,5 +466,9 @@ function showConfirmModal(onConfirm) {
   
   document.getElementById('fnlCncl').onclick = () => {
   modalBgd.remove();
+  document.getElementById("saveBtn").disabled = false;
+  document.getElementById("saveBtn").style.opacity = "100%";
+  document.getElementById("cancelBtn").disabled = false;
+  document.getElementById("cancelBtn").style.opacity = "100%";
   };
 }
