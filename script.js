@@ -269,10 +269,10 @@ function searchById() {
     // save button on click
     saveBtn.onclick = () => {
         // Store input values into variables
-        const uicValue = document.getElementById('uicInput').value;
-        const visitValue = document.getElementById('dateVisitInput').value;
-        const kapValue = document.getElementById('kapGroupSelect').value;
-        const loggerValue = document.getElementById('loggedByInput').value;
+        const uicValue = document.getElementById('uicInputManual').value;
+        const visitValue = document.getElementById('dateVisitInputManual').value;
+        const kapValue = document.getElementById('kapGroupSelectManual').value;
+        const loggerValue = document.getElementById('loggedByInputManual').value;
 
         // Highlight blank fields
         const fields = [
