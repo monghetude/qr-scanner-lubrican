@@ -95,7 +95,7 @@ function searchQR(qrValue) {
     }
 
     document.getElementById("result").innerHTML = `
-      <div style="border:2px solid #256AAE; border-radius:10px; overflow:hidden;">
+      <div style="border:2px solid #0C1134; border-radius:10px; overflow:hidden;">
         <table style="width:100%; border-collapse:collapse;">
           <tr>
             <td style="background:#2263A4; padding:5px; color:#D5EAFF;">Seed ID</td>
