@@ -128,8 +128,8 @@ function stopScanner() {
 function searchQR(qrValue) {
   document.getElementById("startScanBtn").disabled = true;
   document.getElementById("startScanBtn").style.opacity = "50%";
-  document.getElementById("uploadBtn").disabled = true;
-  document.getElementById("uploadBtn").style.opacity = "50%";
+  document.getElementById("uploadQRBtn").disabled = true;
+  document.getElementById("uploadQRBtn").style.opacity = "50%";
 
   fetch(
     "https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec?qrValue=" 
@@ -239,8 +239,8 @@ function searchQR(qrValue) {
     document.getElementById('result').innerHTML = "";
     document.getElementById("startScanBtn").disabled = false;
     document.getElementById("startScanBtn").style.opacity = "100%";
-    document.getElementById("uploadBtn").disabled = false;
-    document.getElementById("uploadBtn").style.opacity = "100%";
+    document.getElementById("uploadQRBtn").disabled = false;
+    document.getElementById("uploadQRBtn").style.opacity = "100%";
     }) 
     
   })
@@ -367,8 +367,8 @@ function searchById() {
     document.getElementById('manualResult').innerHTML = "";
     document.getElementById("startScanBtn").disabled = false;
     document.getElementById("startScanBtn").style.opacity = "100%";
-    document.getElementById("uploadBtn").disabled = false;
-    document.getElementById("uploadBtn").style.opacity = "100%";
+    document.getElementById("uploadQRBtn").disabled = false;
+    document.getElementById("uploadQRBtn").style.opacity = "100%";
     }) 
     
   })
@@ -416,8 +416,8 @@ document.getElementById("result").innerHTML = "";
 document.getElementById("manualResult").innerHTML = "";
 document.getElementById("startScanBtn").disabled = false;
 document.getElementById("startScanBtn").style.opacity = "100%";
-document.getElementById("uploadBtn").disabled = false;
-document.getElementById("uploadBtn").style.opacity = "100%";
+document.getElementById("uploadQRBtn").disabled = false;
+document.getElementById("uploadQRBtn").style.opacity = "100%";
 document.getElementById("saveBtn").disabled = true;
 document.getElementById("saveBtn").style.opacity = "50%";
 document.getElementById("cancelBtn").disabled = true;
