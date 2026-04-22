@@ -171,4 +171,21 @@ body {
 
 .clientFieldLabel {
     color: #0C1134;
+    text-align: left;
+    margin-top: 8px;
 }
+
+#clientDetails {
+    display:block;
+    max-width: 100%;
+    border-radius: 8px;
+    border: solid 2px #4b0102
+}
+
+#clientDetailsManual {
+    display:block;
+    max-width: 100%;
+    border-radius: 8px;
+    border: solid 2px #4b0102
+}
+
