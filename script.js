@@ -218,6 +218,10 @@ function searchQR(qrValue) {
         });
         if (hasBlank) {
           showToast("Please complete all required fields.");
+          document.getElementById("saveBtn").disabled = false;
+          document.getElementById("saveBtn").style.opacity = "100%";
+          document.getElementById("cancelBtn").disabled = false;
+          document.getElementById("cancelBtn").style.opacity = "100%";
           return;
         }
         
@@ -355,6 +359,10 @@ function searchById() {
         });
         if (hasBlank) {
           showToast("Please complete all required fields.");
+          document.getElementById("saveBtn").disabled = false;
+          document.getElementById("saveBtn").style.opacity = "100%";
+          document.getElementById("cancelBtn").disabled = false;
+          document.getElementById("cancelBtn").style.opacity = "100%";
           return;
         }
         
