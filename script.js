@@ -61,7 +61,7 @@ function uploadScan(e) {
 
   fileScanner.scanFile(file, /* showImage= */ false)
     .then((decodedText) => {
-      document.getElementById("result").innerHTML = "<p>Searching...</p>";
+      document.getElementById("result").innerHTML = "<p style="color:#0C1134; font-weight:bold;">Searching...</p>";
       searchQR(decodedText);
     })
       .catch(err => {
@@ -94,7 +94,7 @@ function searchQR(qrValue) {
   .then(res => res.json())
   .then(res => {
     if (!res.found) {
-      document.getElementById("result").innerHTML = "<p>No match found</p>";
+      document.getElementById("result").innerHTML = "<p style="color:#0C1134; font-weight:bold;">No Match Found</p>;
       return;
     }
 
