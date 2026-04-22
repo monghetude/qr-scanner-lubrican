@@ -13,7 +13,7 @@ body {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: url('https://loveyourself.ph/wp-content/uploads/2025/11/Unmasking-Truths-Empowering-Future.png') no-repeat center center fixed;
+      background: url('') no-repeat center center fixed;
       background-size: cover;
       filter: blur(15px);       /* 👈 applies blur */
       transform: scale(1.1);   /* prevent edges showing */
@@ -23,7 +23,7 @@ body {
     #outerBox {max-width: 100%; margin: 0 auto; background: #8DC7FF; border: 2px solid #256AAE; border-radius: 28px; padding: 16px; box-shadow: 0 1px 6px rgba(0,0,0,0.1); text-align: center;}
 
   button {
-    background-color: #7f0104;
+    background-color: #0C1134;
     color: white;
     border: none;
     padding: 10px;
