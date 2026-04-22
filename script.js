@@ -74,10 +74,10 @@ function startScanner() {
     { fps: 10, qrbox: 250 },
 
     (decodedText) => {
-      stopScanner();
+      
 
       document.getElementById("result").innerHTML = "<p>Searching...</p>";
-
+      stopScanner();
       searchQR(decodedText);
     }
   )
@@ -130,7 +130,6 @@ function searchQR(qrValue) {
   document.getElementById("startScanBtn").style.opacity = "50%";
   document.getElementById("uploadQRBtn").disabled = true;
   document.getElementById("uploadQRBtn").style.opacity = "50%";
-  stopScanner();
 
   fetch(
     "https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec?qrValue=" 
