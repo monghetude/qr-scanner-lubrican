@@ -163,7 +163,7 @@ function searchQR(qrValue) {
           </tr>
         </table>
       </div>
-      <h4 style="color: white; margin-bottom: 3px; border-radius: 8px; background: #0c1134; padding 3px;">Client Details</h4>
+      <h4 style="color: white; height 12px; margin-bottom: 3px; border-radius: 8px; background: #0c1134; padding 3px;">Client Details</h4>
       <div id="clientDetails">
       <label class="clientFieldLabel">Client UIC</label>
       <input type="text" class="clientFields" id="uicInput"/>
