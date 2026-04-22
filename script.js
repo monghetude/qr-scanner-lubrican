@@ -99,8 +99,8 @@ function searchQR(qrValue) {
     }
 
     document.getElementById("result").innerHTML = `
-      <div class="resultsDiv" style="border:2px solid #350002; border-radius:10px; overflow:hidden;">
-        <table class="resultsTable" style="width:100%; border-collapse:collapse;">
+      <div class="resultsDiv">
+        <table class="resultsTable">
           <tr>
             <td style="background:#350002; padding:5px;">Seed ID</td>
             <td style="background:#773536; padding:5px;">${res.seedId}</td>
@@ -223,8 +223,8 @@ function searchById() {
     
     // render results from manual search if match is found 
     document.getElementById("manualResult").innerHTML = `
-      <div class="resultsDiv" style="border:2px solid #350002; border-radius:10px; overflow:hidden;">
-        <table class="resultsTable" style="width:100%; border-collapse:collapse;">
+      <div class="resultsDiv">
+        <table class="resultsTable">
           <tr>
             <td style="background:#350002; padding:5px;">Seed ID</td>
             <td style="background:#773536; padding:5px;">${res.seedId}</td>
