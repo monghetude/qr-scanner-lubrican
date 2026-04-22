@@ -92,14 +92,16 @@ body {
   }
 
   .resultsDiv {
-      border:2px solid #350002;
+      border:2px solid #2263A4;
       border-radius:10px;
       overflow:hidden;
+      background-color: #8DC7FF;
   }
 
   .resultsTable {
       width:100%;
       border-collapse:collapse;
+      color: #D5EAFF;
   }
 
   select {
