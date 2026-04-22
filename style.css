@@ -170,6 +170,7 @@ body {
 }
 
 .clientFieldLabel {
+    display:block;
     color: #0C1134;
     text-align: left;
     margin-top: 8px;
