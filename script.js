@@ -98,16 +98,16 @@ function searchQR(qrValue) {
       <div style="border:2px solid #256AAE; border-radius:10px; overflow:hidden;">
         <table style="width:100%; border-collapse:collapse;">
           <tr>
-            <td style="background:#D5EAFF; padding:5px;">Seed ID</td>
-            <td style="background:#D5EAFF; padding:5px;">${res.seedId}</td>
+            <td style="background:#2263A4; padding:5px;">Seed ID</td>
+            <td style="background:#4C9EFF; padding:5px;">${res.seedId}</td>
           </tr>
           <tr>
-            <td style="background:#350002; padding:5px;">Name</td>
-            <td style="background:#773536; padding:5px;">${res.name}</td>
+            <td style="background:#2263A4; padding:5px;">Name</td>
+            <td style="background:#4C9EFF; padding:5px;">${res.name}</td>
           </tr>
           <tr>
-            <td style="background:#350002; padding:5px;">CBO</td>
-            <td style="background:#773536; padding:5px;">${res.cbo}</td>
+            <td style="background:#2263A4; padding:5px;">CBO</td>
+            <td style="background:#4C9EFF; padding:5px;">${res.cbo}</td>
           </tr>
         </table>
       </div>
