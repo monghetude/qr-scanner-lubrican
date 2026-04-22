@@ -96,6 +96,7 @@ body {
       border-radius:10px;
       overflow:hidden;
       background-color: #8DC7FF;
+      margin-bottom: 10px;
   }
 
   .resultsTable {
