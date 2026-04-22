@@ -106,13 +106,18 @@ body {
   }
 
   .resultsTable td:nth-child(1) {
-      background-color: #350002;
+      background-color: #2263a4;
+      font-weight:bold;
       color: white;
+      padding:3px;
+      width: 25%;
   }
 
   .resultsTable td:nth-child(2) {
-      background-color: #350002;
-      color: white;
+      background-color: #d5eaff;
+      color: #0c1134;
+      padding:3px;
+      width: 75%;
   }
 
   select {
