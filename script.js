@@ -147,7 +147,7 @@ function searchQR(qrValue) {
       <div class="resultsDiv">
         <table class="resultsTable">
           <tr>
-            <td colspan="2" style="font-weight: bold;">Seed Details</td>
+            <td colspan="2" style="font-weight: bold; background: #0c1134; padding: 4px;">Seed Details</td>
           </tr>
           <tr>
             <td>Seed ID</td>
@@ -301,7 +301,7 @@ function searchById() {
       <div class="resultsDiv">
         <table class="resultsTable">
           <tr>
-            <td colspan="2" style="font-weight: bold;">Seed Details</td>
+            <td colspan="2" style="font-weight: bold; background: #0c1134; padding: 4px;">Seed Details</td>
           </tr>
           <tr>
             <td>Seed ID</td>
