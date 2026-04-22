@@ -104,6 +104,16 @@ body {
       color: #D5EAFF;
   }
 
+  .resultsTable td:nth-child(1) {
+      background-color: #350002;
+      color: white;
+  }
+
+  .resultsTable td:nth-child(2) {
+      background-color: #350002;
+      color: white;
+  }
+
   select {
     padding: 8px;
     margin-top: 5px;
