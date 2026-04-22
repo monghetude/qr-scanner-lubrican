@@ -143,3 +143,6 @@ body {
   animation: popIn 0.3s ease;
 }
 
+.clientFieldLabel {
+    style: = "color: #0C1134;"
+}
