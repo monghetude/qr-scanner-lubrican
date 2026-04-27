@@ -466,7 +466,7 @@ function saveScan(payload) {
   console.log("Saved:", data);
  
   // remove loading modal AFTER successful save
-document.querySelector(".modal")?.remove();
+document.getElementById("activeModal")?.remove();
   // clear results contents after successful save and re-enable buttons
 document.getElementById("result").innerHTML = "";
 document.getElementById("manualResult").innerHTML = "";
@@ -521,6 +521,7 @@ function showConfirmModal(onConfirm) {
   const modalBgd = document.createElement('div');
   modalBgd.className = "modal";
   modalBgd.style.display = "block";
+  modalBgd.id = "activeModal";
   document.body.appendChild(modalBgd);
   
   const confModal = document.createElement('div');
