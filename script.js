@@ -464,9 +464,10 @@ function saveScan(payload) {
 .then(r => r.json())
 .then(data => {
   console.log("Saved:", data);
-});
-
-// clear results contents after successful save and re-enable buttons
+ 
+  // remove loading modal AFTER successful save
+document.querySelector(".modal")?.remove();
+  // clear results contents after successful save and re-enable buttons
 document.getElementById("result").innerHTML = "";
 document.getElementById("manualResult").innerHTML = "";
 document.getElementById("startScanBtn").disabled = false;
@@ -477,6 +478,14 @@ document.getElementById("gIdManual").disabled = false;
 document.getElementById("gIdManual").style.opacity = "100%";
 document.getElementById("searchManual").disabled = false;
 document.getElementById("searchManual").style.opacity = "100%";
+})
+  .catch(err => {
+    console.error(err);
+    showToast("Save failed");
+
+    // remove modal on failure too
+    document.querySelector(".modal")?.remove();
+  });
 }
 
 // Update mode function
@@ -534,7 +543,6 @@ function showConfirmModal(onConfirm) {
     confModal.style.pointerEvents = "none";
     setTimeout(() => {
       onConfirm();
-      modalBgd.remove();
     }, 100);
   }
   
