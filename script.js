@@ -536,7 +536,7 @@ function showConfirmModal(onConfirm) {
   confModal.id = "fnlConfModal";
   confModal.style.display = "block";
   confModal.innerHTML = `
-    <h2>Confirmationi</h2>
+    <h2>Confirmation</h2>
     <h5>Are you sure you want to submit?</h5>
     <button id="fnlsbmt">Yes</button>
     <button id="fnlCncl">No</button>`;
