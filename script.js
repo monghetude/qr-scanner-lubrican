@@ -368,6 +368,11 @@ function searchById() {
     
     // save button on click
     saveBtn.onclick = () => {
+        document.getElementById("saveBtn").disabled = true;
+        document.getElementById("saveBtn").style.opacity = "50%";
+        document.getElementById("cancelBtn").disabled = true;
+        document.getElementById("cancelBtn").style.opacity = "50%";
+      
         // Store input values into variables
         const uicValue = document.getElementById('uicInputManual').value;
         const visitValue = document.getElementById('dateVisitInputManual').value;
