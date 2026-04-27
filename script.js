@@ -483,6 +483,8 @@ document.getElementById("gIdManual").disabled = false;
 document.getElementById("gIdManual").style.opacity = "100%";
 document.getElementById("searchManual").disabled = false;
 document.getElementById("searchManual").style.opacity = "100%";
+
+showToast('Save Successful');
 })
   .catch(err => {
     console.error(err);
