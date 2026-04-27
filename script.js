@@ -524,9 +524,18 @@ function showConfirmModal(onConfirm) {
     <button id="fnlsbmt">Yes</button>
     <button id="fnlCncl">No</button>`;
   modalBgd.appendChild(confModal);
+  
+  // Yes on click
   document.getElementById('fnlsbmt').onclick = () => {
-    modalBgd.remove();
-    onConfirm();
+    confModal.innerHTML = `
+      <div class="spinner"></div>
+      <h3>Saving...</h3>
+    `;
+    confModal.style.pointerEvents = "none";
+    setTimeout(() => {
+      onConfirm();
+      modalBgd.remove();
+    }, 100);
   }
   
   document.getElementById('fnlCncl').onclick = () => {
