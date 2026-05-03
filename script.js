@@ -1,6 +1,19 @@
 if (!localStorage.getItem("loggedIn")) {
   window.location.href = "index.html";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const userInfo = document.getElementById("userInfo");
+
+  if (userInfo) {
+    userInfo.innerHTML = `
+      User: ${localStorage.getItem("username")}<br>
+      CBO: ${localStorage.getItem("cbo")}<br>
+      Role: ${localStorage.getItem("role")}
+    `;
+  }
+});
+
 let qrReader;
 
 // Variable Assignments
