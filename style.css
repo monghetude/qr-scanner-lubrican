@@ -306,17 +306,32 @@ body {
   z-index: 10;
 }
 
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 998;
+}
+
 /* side menu (hidden by default) */
 .sideMenu {
-  position: absolute;
-  top: 60px;
-  left: 20px;
-  background: #2263a4;
-  border-radius: 10px;
-  padding: 10px;
-  display: none;
-  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -260px; /* hidden by default */
+  width: 250px;
+  height: 100%;
+  background: #0c1134;
+  color: white;
+  padding: 20px;
+  transition: 0.3s ease;
   z-index: 999;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
 }
 
 /* menu links */
@@ -332,6 +347,17 @@ body {
   background-color: #0c1134;
 }
 
+/* ACTIVE STATES */
+.side-menu.open {
+  left: 0;
+}
+
+#overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Registered Seeds Table */
 .tableContainer {
   overflow: hidden;
   border-radius: 12px;
