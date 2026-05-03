@@ -1,7 +1,7 @@
 const token = localStorage.getItem("sessionToken");
 
 if (!token) {
-  window.location.href = "index.html";
+  window.location.href = "/qr-scanner-lubrican/index.html";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
