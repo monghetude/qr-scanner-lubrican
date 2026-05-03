@@ -305,3 +305,29 @@ body {
   cursor: pointer;
   z-index: 10;
 }
+
+/* side menu (hidden by default) */
+.sideMenu {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  background: #2263a4;
+  border-radius: 10px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+/* menu links */
+.sideMenu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 6px;
+  display: block;
+}
+
+.sideMenu a:hover {
+  background-color: #0c1134;
+}
