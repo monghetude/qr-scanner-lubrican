@@ -225,5 +225,38 @@ body {
 }
 
 .loginBox {
-  display: block;
+  max-width: 350px;
+  margin: 80px auto 0 auto;
+  text-align: center;
+}
+
+/* each label-input pair */
+.formRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+  gap: 10px;
+}
+
+/* label styling */
+.formRow label {
+  width: 90px;           /* controls alignment */
+  text-align: right;
+  font-weight: bold;
+}
+
+/* input styling */
+.formRow input {
+  flex: 1;
+  max-width: 200px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+}
+
+/* login button centered */
+#loginBtn {
+  margin-top: 15px;
+  width: 120px;
 }
