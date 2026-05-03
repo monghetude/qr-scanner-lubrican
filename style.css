@@ -348,7 +348,7 @@ body {
 }
 
 /* ACTIVE STATES */
-.sidemenu.open {
+.sideMenu.open {
   left: 0;
 }
 
