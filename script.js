@@ -1,3 +1,6 @@
+if (!localStorage.getItem("loggedIn")) {
+  window.location.href = "index.html";
+}
 let qrReader;
 
 // Variable Assignments
