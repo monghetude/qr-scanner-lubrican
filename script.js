@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+document.getElementById("logoutBtn").addEventListener("click", logout);
+
+function logout() {
+  localStorage.clear();
+  window.location.href = "index.html";
+}
+
 let qrReader;
 
 // Variable Assignments
