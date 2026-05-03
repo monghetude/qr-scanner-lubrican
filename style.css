@@ -270,6 +270,7 @@ body {
   justify-content: space-between;
   border-radius: 10px;
   margin-bottom: 15px;
+  height: 40px;
 }
 
 /* greeting text */
