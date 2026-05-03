@@ -88,6 +88,8 @@ hamburger.addEventListener("click", () => {
 });
 
 // Main call ------------------------
+const tbody = document.getElementById("seedTableBody");
+  tbody.innerHTML = "Loading...";
 fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
   method: "POST",
   body: JSON.stringify({
