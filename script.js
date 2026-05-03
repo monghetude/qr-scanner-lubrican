@@ -8,11 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const userInfo = document.getElementById("userInfo");
 
   if (userInfo) {
-    userInfo.innerHTML = `
-      User: ${localStorage.getItem("username")}<br>
-      CBO: ${localStorage.getItem("cbo")}<br>
-      Role: ${localStorage.getItem("role")}
-    `;
+document.getElementById("userGreeting").innerText =
+  `Hello, ${localStorage.getItem("cbo") || "User"}`;
   }
 
 // logout button
