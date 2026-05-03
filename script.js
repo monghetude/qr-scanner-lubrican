@@ -37,8 +37,15 @@ const manualSection = document.getElementById("manualSection");
 const clientDetails = document.getElementById("clientDetails");
 const gIdManual = document.getElementById("gIdManual");
 const searchManual = document.getElementById("searchManual");
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("sideMenu");
 
 // EVENT LISTENERS -------------------
+
+hamburger.addEventListener("click", () => {
+  sideMenu.style.display =
+    sideMenu.style.display === "flex" ? "none" : "flex";
+});
 
 modeSwitch.addEventListener("change", updateMode);
 updateMode(); // set default view on load
