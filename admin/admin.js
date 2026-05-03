@@ -2,6 +2,12 @@ if (localStorage.getItem("role") !== "admin") {
   window.location.href = "/qr-scanner-lubrican/scanner.html";
 }
 
+const token = localStorage.getItem("sessionToken");
+
+if (!token) {
+  window.location.href = "index.html";
+}
+
 function createUser() {
   fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
     method: "POST",
