@@ -225,12 +225,5 @@ body {
 }
 
 .loginBox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px; /* spacing between fields */
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
+  display: block;
 }
