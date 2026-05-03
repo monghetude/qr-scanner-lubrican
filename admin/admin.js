@@ -5,7 +5,7 @@ if (localStorage.getItem("role") !== "admin") {
 const token = localStorage.getItem("sessionToken");
 
 if (!token) {
-  window.location.href = "index.html";
+  window.location.href = "/qr-scanner-lubrican/scanner.html";
 }
 
 function createUser() {
@@ -48,7 +48,7 @@ function checkSession() {
   .then(res => {
     if (!res.valid) {
       localStorage.clear();
-      window.location.href = "index.html";
+      window.location.href = "/qr-scanner-lubrican/index.html";
     }
   });
 }
@@ -74,7 +74,7 @@ function validateSessionOnLoad() {
   .then(res => {
     if (!res.valid) {
       localStorage.clear();
-      window.location.href = "index.html";
+      window.location.href = "/qr-scanner-lubrican/index.html";
     }
   })
   .catch(() => {
