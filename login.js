@@ -30,6 +30,8 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
     showToast(res.message);
   }
   document.getElementById('activeModal').remove();
+  document.getElementById("loginBtn").disabled = false;
+  document.getElementById("loginBtn").style.opacity = "100%";
 });
 }
 
