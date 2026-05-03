@@ -596,7 +596,7 @@ function checkSession() {
   const token = localStorage.getItem("sessionToken");
 
   if (!token) {
-    window.location.href = "index.html";
+    window.location.href = "/qr-scanner-lubrican/index.html";
   }
 
   fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
@@ -610,7 +610,7 @@ function checkSession() {
   .then(res => {
     if (!res.valid) {
       localStorage.clear();
-      window.location.href = "index.html";
+      window.location.href = "/qr-scanner-lubrican/index.html";
     }
   });
 }
@@ -621,7 +621,7 @@ function validateSessionOnLoad() {
   const token = localStorage.getItem("sessionToken");
 
   if (!token) {
-    window.location.href = "index.html";
+    window.location.href = "/qr-scanner-lubrican/index.html";
     return;
   }
 
@@ -642,7 +642,7 @@ function validateSessionOnLoad() {
   .catch(() => {
     // fail-safe: if backend is unreachable, lock user out
     localStorage.clear();
-    window.location.href = "index.html";
+    window.location.href = "/qr-scanner-lubrican/index.html";
   });
 }
 
