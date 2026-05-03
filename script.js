@@ -14,6 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const logoutBtn = document.getElementById("logoutBtn");
+
+console.log(logoutBtn);
+
+logoutBtn.addEventListener("click", function(e) {
+  console.log("Logout clicked");
+});
+
 document.getElementById("logoutBtn").addEventListener("click", logout);
 
 function logout() {
