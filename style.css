@@ -224,7 +224,7 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.loginbox {
+.loginBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
