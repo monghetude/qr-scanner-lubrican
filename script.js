@@ -481,6 +481,7 @@ function saveScan(payload) {
   method: "POST",
   body: JSON.stringify({
     action: "saveScan",
+    sessionToken: localStorage.getItem("sessionToken"),
     payload: {
       seedId: payload.seedId,
       name: payload.name,
