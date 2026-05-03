@@ -1,5 +1,5 @@
 if (localStorage.getItem("role") !== "admin") {
-  window.location.href = "window.location.href = "/qr-scanner-lubrican/scanner.html";";
+  window.location.href = "/qr-scanner-lubrican/scanner.html";
 }
 
 function createUser() {
