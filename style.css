@@ -224,3 +224,11 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* spacing between fields */
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
