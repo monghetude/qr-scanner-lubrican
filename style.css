@@ -331,3 +331,32 @@ body {
 .sideMenu a:hover {
   background-color: #0c1134;
 }
+
+.tableContainer {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 2px solid #2263a4;
+}
+
+.seedTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.seedTable th {
+  background-color: #2263a4;
+  color: white;
+  padding: 10px;
+}
+
+.seedTable td {
+  background-color: #d5eaff;
+  padding: 8px;
+  text-align: center;
+}
+
+/* remove inner borders */
+.seedTable td,
+.seedTable th {
+  border: none;
+}
