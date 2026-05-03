@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (userGreeting) {
 document.getElementById("userGreeting").innerText =
-  `Hello, ${localStorage.getItem("cbo") || "User"}`;
+  `Hello, ${localStorage.getItem("cbo") || "User"}!`;
   }
 
 // logout button
