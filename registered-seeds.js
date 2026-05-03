@@ -72,6 +72,7 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
     sessionToken: localStorage.getItem("sessionToken")
   })
 })
+.then(res => res.json());
 .then(res => {
   console.log("RAW RESPONSE:", res);
 
