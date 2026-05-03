@@ -1,4 +1,6 @@
-if (!localStorage.getItem("loggedIn")) {
+const token = localStorage.getItem("sessionToken");
+
+if (!token) {
   window.location.href = "index.html";
 }
 
