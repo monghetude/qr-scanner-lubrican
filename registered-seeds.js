@@ -71,6 +71,7 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
     action: "getSeeds",
     sessionToken: localStorage.getItem("sessionToken")
   })
+  console.log(sessionToken);
 })
 .then(res => res.json())
 .then(data => {
