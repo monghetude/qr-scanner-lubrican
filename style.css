@@ -287,3 +287,21 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
+
+.bannerContainer {
+  position: relative; /* anchor for absolute positioning */
+}
+
+/* hamburger overlay */
+#hamburger {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 26px;
+  color: white;
+  background: rgba(0,0,0,0.4); /* optional for visibility */
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 10;
+}
