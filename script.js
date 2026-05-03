@@ -53,7 +53,7 @@ hamburger.addEventListener("click", () => {
 overlay.addEventListener("click", closeMenu);
 
 // optional: clicking menu links closes it too
-document.querySelectorAll(".side-menu a").forEach(link => {
+document.querySelectorAll(".sidemenu a").forEach(link => {
   link.addEventListener("click", closeMenu);
 });
 
