@@ -44,7 +44,7 @@ const overlay = document.getElementById("overlay");
 // EVENT LISTENERS -------------------
 
 // open menu
-hamburgerBtn.addEventListener("click", () => {
+hamburger.addEventListener("click", () => {
   sideMenu.classList.add("open");
   overlay.classList.add("show");
 });
