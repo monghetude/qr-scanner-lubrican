@@ -5,9 +5,9 @@ if (!token) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const userInfo = document.getElementById("userInfo");
+  const userInfo = document.getElementById("userGreeting");
 
-  if (userInfo) {
+  if (userGreeting) {
 document.getElementById("userGreeting").innerText =
   `Hello, ${localStorage.getItem("cbo") || "User"}`;
   }
