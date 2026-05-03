@@ -1,6 +1,4 @@
-console.log("SESSION TOKEN:", localStorage.getItem("sessionToken"));
-
-// Session Validators
+// Session Validators -----------------------
 const token = localStorage.getItem("sessionToken");
 
 if (!token) {
@@ -63,8 +61,33 @@ function validateSessionOnLoad() {
 
 validateSessionOnLoad();
 
+// DOM -------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const userInfo = document.getElementById("userGreeting");
 
-// Main call
+  if (userGreeting) {
+document.getElementById("userGreeting").innerText =
+  `Hello, ${localStorage.getItem("cbo") || "User"}!`;
+  }
+
+  // logout button
+  document.getElementById("logoutBtn").addEventListener("click", logout);
+  
+  function logout() {
+    localStorage.clear();
+    window.location.href = "/qr-scanner-lubrican/index.html";
+  }
+});
+
+// Hamburger Menue ---------------
+const hamburger = document.getElementById("hamburger");
+const sideMenu = document.getElementById("sideMenu");
+hamburger.addEventListener("click", () => {
+  sideMenu.style.display =
+    sideMenu.style.display === "flex" ? "none" : "flex";
+});
+
+// Main call ------------------------
 fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
   method: "POST",
   body: JSON.stringify({
