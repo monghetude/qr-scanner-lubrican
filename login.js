@@ -3,11 +3,10 @@ console.log("login.js loaded");
 document.getElementById("loginBtn").addEventListener("click", loginUser);
 
 function loginUser() {
+  showConfirmModal();
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-
-  // TEMPORARY hardcoded validation
-  // Later this should come from GAS backend
+  
 
 fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
   method: "POST",
@@ -30,6 +29,7 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
   } else {
     showToast(res.message);
   }
+  document.getElementById('activeModal').remove();
 });
 }
 
@@ -41,4 +41,26 @@ function showToast(message, duration = 3000) {
   setTimeout(() => {
     toast.classList.remove("show");
   }, duration);
+}
+
+function showConfirmModal() {
+  document.getElementById("loginBtn").disabled = true;
+  document.getElementById("loginBtn").style.opacity = "50%";
+
+  const modalBgd = document.createElement('div');
+  modalBgd.className = "modal";
+  modalBgd.style.display = "block";
+  modalBgd.id = "activeModal";
+  document.body.appendChild(modalBgd);
+  
+  const confModal = document.createElement('div');
+  confModal.className = "modal-content";
+  confModal.id = "fnlConfModal";
+  confModal.style.display = "block";
+  modalBgd.appendChild(confModal);
+  
+  confModal.innerHTML = `
+      <div class="spinner"></div>
+      <h3>Verifying...</h3>
+  `;
 }
