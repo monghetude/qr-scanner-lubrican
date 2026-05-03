@@ -323,13 +323,14 @@ body {
 .sideMenu {
   position: fixed;
   top: 0;
-  left: -260px; /* hidden by default */
+  left: 0;
   width: 250px;
   height: 100%;
   background: #0c1134;
   color: white;
   padding: 20px;
-  transition: 0.3s ease;
+  transform: translateX(-100%); 
+  transition: transform 0.3s ease;
   z-index: 999;
   box-shadow: 2px 0 10px rgba(0,0,0,0.3);
 }
@@ -349,7 +350,7 @@ body {
 
 /* ACTIVE STATES */
 .sideMenu.open {
-  left: 0;
+  transform: translateX(0);
 }
 
 #overlay.show {
