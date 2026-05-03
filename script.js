@@ -12,22 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
       Role: ${localStorage.getItem("role")}
     `;
   }
-});
 
-const logoutBtn = document.getElementById("logoutBtn");
-
-console.log(logoutBtn);
-
-logoutBtn.addEventListener("click", function(e) {
-  console.log("Logout clicked");
-});
-
+// logout button
 document.getElementById("logoutBtn").addEventListener("click", logout);
 
 function logout() {
   localStorage.clear();
   window.location.href = "index.html";
 }
+});
+
+
 
 let qrReader;
 
