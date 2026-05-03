@@ -5,7 +5,7 @@ if (localStorage.getItem("role") !== "admin") {
 const token = localStorage.getItem("sessionToken");
 
 if (!token) {
-  window.location.href = "/qr-scanner-lubrican/scanner.html";
+  window.location.href = "/qr-scanner-lubrican/index.html";
 }
 
 function createUser() {
