@@ -39,13 +39,28 @@ const gIdManual = document.getElementById("gIdManual");
 const searchManual = document.getElementById("searchManual");
 const hamburger = document.getElementById("hamburger");
 const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
 
 // EVENT LISTENERS -------------------
 
-hamburger.addEventListener("click", () => {
-  sideMenu.style.display =
-    sideMenu.style.display === "flex" ? "none" : "flex";
+// open menu
+hamburgerBtn.addEventListener("click", () => {
+  sideMenu.classList.add("open");
+  overlay.classList.add("show");
 });
+
+// close menu (click outside)
+overlay.addEventListener("click", closeMenu);
+
+// optional: clicking menu links closes it too
+document.querySelectorAll(".side-menu a").forEach(link => {
+  link.addEventListener("click", closeMenu);
+});
+
+function closeMenu() {
+  sideMenu.classList.remove("open");
+  overlay.classList.remove("show");
+}
 
 modeSwitch.addEventListener("change", updateMode);
 updateMode(); // set default view on load
