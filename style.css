@@ -224,9 +224,11 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.login-container {
+.loginbox {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 10px; /* spacing between fields */
   width: 100%;
   max-width: 300px;
