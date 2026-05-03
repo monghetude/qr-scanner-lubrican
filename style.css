@@ -260,3 +260,29 @@ body {
   margin-top: 15px;
   width: 120px;
 }
+
+.topBar {
+  background-color: #2263a4;
+  color: white;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* greeting text */
+#userGreeting {
+  font-weight: bold;
+}
+
+/* override global button style inside top bar */
+.topBar button {
+  background-color: #0c1134;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
