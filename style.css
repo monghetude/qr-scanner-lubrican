@@ -263,8 +263,8 @@ body {
 
 .topBar {
   background-color: #2263a4;
-  color: white;
-  padding: 10px 15px;
+  color: #0c1134;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
