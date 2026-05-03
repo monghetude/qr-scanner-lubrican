@@ -72,19 +72,20 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
     sessionToken: localStorage.getItem("sessionToken")
   })
 })
-.then(res => res.json());
-.then(res => {
-  console.log("RAW RESPONSE:", res);
+.then(res => res.json())
+.then(data => {
 
-  if (!res.success || !Array.isArray(res.seeds)) {
-    showToast(res.message || "No seeds found");
+  console.log("PARSED DATA:", data); // 👈 now you will see seeds here
+
+  if (!data.success || !Array.isArray(data.seeds)) {
+    showToast(data.message || "No seeds found or session invalid");
     return;
   }
 
   const tbody = document.getElementById("seedTableBody");
   tbody.innerHTML = "";
 
-  res.seeds.forEach(seed => {
+  data.seeds.forEach(seed => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
