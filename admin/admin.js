@@ -8,6 +8,10 @@ if (!token) {
   window.location.href = "/qr-scanner-lubrican/index.html";
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  loadCboList();
+});
+
 function createUser() {
   fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
     method: "POST",
@@ -30,6 +34,35 @@ function createUser() {
   });
 }
 
+// CBO List Loader
+function loadCboList() {
+  fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      action: "getCboList"
+    })
+  })
+  .then(r => r.json())
+  .then(res => {
+    if (!res.success) return;
+
+    const select = document.getElementById("newCbo");
+
+    // optional: clear first
+    select.innerHTML = `<option value="">Select CBO</option>`;
+
+    res.cboList.forEach(cbo => {
+      const option = document.createElement("option");
+      option.value = cbo;
+      option.textContent = cbo;
+      select.appendChild(option);
+    });
+  })
+  .catch(err => console.error(err));
+}
+
+
+// Session Checkers
 function checkSession() {
   const token = localStorage.getItem("sessionToken");
 
