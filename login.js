@@ -1,3 +1,5 @@
+console.log("login.js loaded");
+
 document.getElementById("loginBtn").addEventListener("click", loginUser);
 
 function loginUser() {
