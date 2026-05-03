@@ -49,7 +49,9 @@ function loadCboList() {
     const select = document.getElementById("newCbo");
 
     // optional: clear first
-    select.innerHTML = `<option value="">Select CBO</option>`;
+    select.innerHTML = `
+    <option value="" selected disabled>Select CBO</option>
+    <option value="LY PMU">LY PMU</option>`;
 
     res.cboList.forEach(cbo => {
       const option = document.createElement("option");
