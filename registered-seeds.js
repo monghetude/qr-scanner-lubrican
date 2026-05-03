@@ -89,7 +89,8 @@ hamburger.addEventListener("click", () => {
 
 // Main call ------------------------
 const tbody = document.getElementById("seedTableBody");
-tbody.colspan = 3;  
+tbody.colspan = "3";
+tbody.style.textAlign = "center";
 tbody.innerHTML = "Loading...";
 fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zDhEJwI350SeEl-3oxt4T1WNnHn0VyUgmlFz/exec", {
   method: "POST",
