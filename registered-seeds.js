@@ -124,7 +124,7 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
   console.log("PARSED DATA:", data); // 👈 now you will see seeds here
 
   if (!data.success || !Array.isArray(data.seeds) || !data.seeds) {
-    showToast("No seeds found or session invalid");
+    showToast(data.message || "No seeds found or session invalid");
     const tbody = document.getElementById("seedTableBody");
     tbody.innerHTML = `
       <tr>
