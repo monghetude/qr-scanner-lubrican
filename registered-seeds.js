@@ -1,3 +1,5 @@
+console.log("SESSION TOKEN:", localStorage.getItem("sessionToken"));
+
 // Session Validators
 const token = localStorage.getItem("sessionToken");
 
