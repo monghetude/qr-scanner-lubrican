@@ -125,6 +125,14 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
 
   if (!data.success || !Array.isArray(data.seeds) || !data.seeds) {
     showToast("No seeds found or session invalid");
+    const tbody = document.getElementById("seedTableBody");
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="3" style="text-align:center; padding:10px;">
+          No Match
+        </td>
+      </tr>
+    `;
     return;
   }
 
