@@ -20,7 +20,7 @@ document.getElementById("logoutBtn").addEventListener("click", logout);
 
 function logout() {
   localStorage.clear();
-  window.location.href = "index.html";
+  window.location.href = "/qr-scanner-lubrican/index.html";
 }
 });
 
@@ -636,7 +636,7 @@ function validateSessionOnLoad() {
   .then(res => {
     if (!res.valid) {
       localStorage.clear();
-      window.location.href = "index.html";
+      window.location.href = "/qr-scanner-lubrican/index.html";
     }
   })
   .catch(() => {
