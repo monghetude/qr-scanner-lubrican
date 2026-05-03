@@ -72,16 +72,18 @@ fetch("https://script.google.com/macros/s/AKfycbwYhaIIxax9_IjEqW6KlK8p7l2eMiB7zD
     sessionToken: localStorage.getItem("sessionToken")
   })
 })
-.then(res => res.json())
-.then(data => {
-  const tbody = document.getElementById("seedTableBody");
+.then(res => {
+  console.log("RAW RESPONSE:", res);
 
-  if (!data.seeds) {
-    showToast("No seeds found or session invalid");
+  if (!res.success || !Array.isArray(res.seeds)) {
+    showToast(res.message || "No seeds found");
     return;
   }
-  
-  data.seeds.forEach(seed => {
+
+  const tbody = document.getElementById("seedTableBody");
+  tbody.innerHTML = "";
+
+  res.seeds.forEach(seed => {
     const row = document.createElement("tr");
 
     row.innerHTML = `
