@@ -82,10 +82,25 @@ document.getElementById("userGreeting").innerText =
 // Hamburger Menue ---------------
 const hamburger = document.getElementById("hamburger");
 const sideMenu = document.getElementById("sideMenu");
+const overlay = document.getElementById("overlay");
+// open menu
 hamburger.addEventListener("click", () => {
-  sideMenu.style.display =
-    sideMenu.style.display === "flex" ? "none" : "flex";
+  sideMenu.classList.add("open");
+  overlay.classList.add("show");
 });
+
+// close menu (click outside)
+overlay.addEventListener("click", closeMenu);
+
+// optional: clicking menu links closes it too
+document.querySelectorAll(".sideMenu a").forEach(link => {
+  link.addEventListener("click", closeMenu);
+});
+
+function closeMenu() {
+  sideMenu.classList.remove("open");
+  overlay.classList.remove("show");
+}
 
 // Main call ------------------------
 const tbody = document.getElementById("seedTableBody");
