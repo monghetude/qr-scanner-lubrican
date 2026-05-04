@@ -1,3 +1,5 @@
+document.body.style.display = "block"; // 👈 show page ONLY if valid
+
 console.log("login.js loaded");
 
 document.getElementById("loginBtn").addEventListener("click", loginUser);
