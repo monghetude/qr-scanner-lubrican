@@ -24,6 +24,8 @@ function checkSession() {
     if (!res.valid) {
       localStorage.clear();
       window.location.href = "/qr-scanner-lubrican/index.html";
+    } else {
+      document.body.style.display = "block"; // 👈 show page ONLY if valid
     }
   });
 }
