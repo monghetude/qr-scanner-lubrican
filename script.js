@@ -516,6 +516,25 @@ function saveScan(payload) {
 })
 .then(r => r.json())
 .then(data => {
+
+  if (!data.success) {
+    console.log("Session Token Invalid");
+    document.getElementById("activeModal")?.remove();
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("manualResult").innerHTML = "";
+    document.getElementById("startScanBtn").disabled = false;
+    document.getElementById("startScanBtn").style.opacity = "100%";
+    document.getElementById("uploadQRBtn").disabled = false;
+    document.getElementById("uploadQRBtn").style.opacity = "100%";
+    document.getElementById("gIdManual").disabled = false;
+    document.getElementById("gIdManual").style.opacity = "100%";
+    document.getElementById("searchManual").disabled = false;
+    document.getElementById("searchManual").style.opacity = "100%";
+    localStorage.clear();
+    window.location.href = "/qr-scanner-lubrican/index.html";
+    return;
+  }
+  
   console.log("Saved:", data);
  
   // remove loading modal AFTER successful save
